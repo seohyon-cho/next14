@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useCustomText } from '@/hooks/useText';
 
 export default function Navbar({ textArr }) {
+	// 커스텀 훅은 클라이언트 기반 컴포넌트에서만 쓸 수 있음.
 	const setCapitalize = useCustomText('capitalize');
 	const pathName = usePathname();
 	return (
