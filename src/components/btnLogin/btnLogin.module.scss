@@ -8,7 +8,7 @@
 	font-size: 0.7rem;
 	cursor: pointer;
 	transition: background 0.5s, border-color 0.5s;
-	margin-left: auto;
+	margin-left: 0;
 
 	&.btnLogout {
 		background: var(--text);
@@ -20,4 +20,10 @@
 	background: var(--point);
 	color: var(--bg);
 	border-color: transparent;
+}
+
+@media (max-width: $tablet) {
+	.btn {
+		margin-left: auto;
+	}
 }
