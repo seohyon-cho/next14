@@ -7,31 +7,23 @@
 
 	(hydration에서의 주의점 : 서버쪽에서 렌더링된 결과값과, 초기 client 컴포넌트에서 동작되는 결과값이 동일해야 함.)
 			해결방법 (1) : useEffect를 이용해서 컴포넌트가 마운트될 때에만 특정 state 값을 활성화 시키고, 해당 값이 활성화 될 때에만 클라이언트에서 활용할 값을 호출하는 방법 
+
+		해결방법 (2) : Dynamic import 방식을 활용해서, client 방식으로 동작하는 컴포넌트를 애초에 서버쪽에서 preBuild 되지 않도록 처리하는 것. 
 */
 
 import clsx from 'clsx';
 import styles from './navbar.module.scss';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 export default function Navbar({ textArr }) {
 	const time = new Date().getTime();
-	const [Client, setClient] = useState(false);
-
-	// useEffect 자체가 컴포넌트가 마운트되어야 실행되는 거니까
-	// 컴포넌트가 마운트 될 때 Client 값이 true 로 바뀌게 되고,
-	// Client 가 true 일 때만 하단에서 time을 띄우게 하는 것 자체가
-	// 결국은 마운트 되고나서 time을 실행 (클라이언트가 하는 것. 서버가 사전에 프리렌더 하는 것이 아님) 하는 것이므로,
-	// 서버에서 프리렌더링 할 때의 결과값과 클라이언트가 마운트 될 때의 결과값이 달라질 일이 없으므로 Hydration 관련 오류를 해결할 수 있음.
-	useEffect(() => {
-		setClient(true);
-	}, []);
+	console.log('navbar');
 
 	const pathName = usePathname();
 	return (
 		<nav className={clsx(styles.navbar)}>
-			<h2>{Client && time}</h2>
+			<h2>{time}</h2>
 			{textArr.map(txt => (
 				<Link key={txt} href={`/${txt}`} className={clsx(pathName === '/' + txt ? styles.on : '')}>
 					{txt.charAt(0).toUpperCase() + txt.slice(1)}
