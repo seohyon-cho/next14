@@ -1,0 +1,7 @@
+.navbar {
+	a {
+		&.on {
+			color: var(--point);
+		}
+	}
+}
