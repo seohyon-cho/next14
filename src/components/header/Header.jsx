@@ -11,7 +11,7 @@ export default function Header() {
 				<Link href='/'>DCODELAB</Link>
 			</h1>
 			<Navbar textArr={['about', 'youtube', 'post']} />
-			<BtnLogin session={false} />
+			<BtnLogin session={true} />
 		</header>
 	);
 }

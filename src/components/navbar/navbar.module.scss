@@ -1,4 +1,6 @@
 .navbar {
+	display: flex;
+	gap: 40px;
 	a {
 		&.on {
 			color: var(--point);
