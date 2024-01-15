@@ -1,9 +1,16 @@
 .navbar {
 	display: flex;
 	gap: 40px;
+	margin-left: auto;
 	a {
 		&.on {
 			color: var(--point);
 		}
+	}
+}
+
+@media (max-width: $tablet) {
+	.navbar {
+		display: none;
 	}
 }

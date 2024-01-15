@@ -12,11 +12,10 @@ export default function Header() {
 			<h1>
 				<Link href='/'>DCODELAB</Link>
 			</h1>
-			<div>
-				<Navbar textArr={['about', 'youtube', 'post']} />
-				<BtnLogin session={true} />
-				<FaBarsStaggered size={20} color={'#333'} />
-			</div>
+
+			<Navbar textArr={['about', 'youtube', 'post']} />
+			<BtnLogin session={true} />
+			<FaBarsStaggered size={20} color={'#333'} className={clsx(styles.btnMenu)} />
 		</header>
 	);
 }
