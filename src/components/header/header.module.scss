@@ -1,0 +1,14 @@
+.header {
+	width: 100%;
+	h1 {
+		width: 100%;
+	}
+
+	nav {
+		a {
+			&.on {
+				color: var(--point);
+			}
+		}
+	}
+}
