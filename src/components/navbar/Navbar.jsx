@@ -19,6 +19,11 @@ export default function Navbar({ textArr }) {
 	const time = new Date().getTime();
 	const [Client, setClient] = useState(false);
 
+	// useEffect 자체가 컴포넌트가 마운트되어야 실행되는 거니까
+	// 컴포넌트가 마운트 될 때 Client 값이 true 로 바뀌게 되고,
+	// Client 가 true 일 때만 하단에서 time을 띄우게 하는 것 자체가
+	// 결국은 마운트 되고나서 time을 실행 (클라이언트가 하는 것. 서버가 사전에 프리렌더 하는 것이 아님) 하는 것이므로,
+	// 서버에서 프리렌더링 할 때의 결과값과 클라이언트가 마운트 될 때의 결과값이 달라질 일이 없으므로 Hydration 관련 오류를 해결할 수 있음.
 	useEffect(() => {
 		setClient(true);
 	}, []);
