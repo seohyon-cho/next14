@@ -30,7 +30,7 @@ export function useCustomText(type) {
 		return (txt, spc = '') => {
 			return txt
 				.split(/-|_|\+/)
-				.map(data => toUpperText(data))
+				.map(data => data.charAt(0).toUpperCase() + data.slice(1))
 				.join(spc);
 		};
 	}
