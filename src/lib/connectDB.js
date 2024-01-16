@@ -6,17 +6,17 @@
 
 */
 
-export const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 let isConnected = false;
 
-const connectDB = async () => {
+export const connectDB = async () => {
 	try {
 		if (isConnected) {
 			console.log('already connected!');
 			return;
 		}
 		const db = await mongoose.connect(process.env.MONGO_URI);
-		isConnected = db.connection[0].readyState;
+		isConnected = db.connections[0].readyState;
 	} catch (err) {
 		console.log(err);
 		throw new Error('Fail to connect DB!');
