@@ -13,22 +13,13 @@ export default function YoutubeCard({ data, isPriority }) {
 		<article className={clsx(styles.youtubeCard)}>
 			<div className={styles.pic}>
 				<Link href={`/detail/${data.id}`}>
-					{isPriority ? (
-						<Image
-							src={data.snippet.thumbnails.standard.url}
-							alt={data.snippet.title}
-							fill
-							sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw,33vw'
-							priority
-						/>
-					) : (
-						<Image
-							src={data.snippet.thumbnails.standard.url}
-							alt={data.snippet.title}
-							fill
-							sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw,33vw'
-						/>
-					)}
+					<Image
+						src={data.snippet.thumbnails.standard.url}
+						alt={data.snippet.title}
+						fill
+						sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+						priority={isPriority}
+					/>
 				</Link>
 			</div>
 			<h2>{shortenText(data.snippet.title, 50)}</h2>
