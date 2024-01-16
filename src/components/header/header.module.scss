@@ -10,16 +10,4 @@
 	h1 {
 		font-size: 1.5rem;
 	}
-
-	.btnMenu {
-		display: none;
-	}
-}
-
-@media (max-width: $tablet) {
-	.header {
-		.btnMenu {
-			display: block;
-		}
-	}
 }

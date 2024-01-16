@@ -4,7 +4,8 @@ import Link from 'next/link';
 import Navbar from '../navbar/Navbar';
 import BtnLogin from '../btnLogin/BtnLogin';
 // npm i react-icons
-import { FaBarsStaggered } from 'react-icons/fa6';
+
+import BtnMenuToggle from '../btnMenuToggle/BtnMenuToggle';
 
 export default function Header() {
 	return (
@@ -15,7 +16,7 @@ export default function Header() {
 
 			<Navbar textArr={['about', 'youtube', 'post']} />
 			<BtnLogin session={true} />
-			<FaBarsStaggered size={20} color={'#333'} className={clsx(styles.btnMenu)} />
+			<BtnMenuToggle />
 		</header>
 	);
 }

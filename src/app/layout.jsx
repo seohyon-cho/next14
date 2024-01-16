@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google';
 import '@/styles/globals.scss';
 import Header from '@/components/header/Header';
 import { GlobalProvider } from '@/hooks/useGlobalData';
+import MobileMenu from '@/components/mobileMenu/MobileMenu';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
 						<Header />
 						{children}
 					</main>
+					<MobileMenu />
 				</GlobalProvider>
 			</body>
 		</html>

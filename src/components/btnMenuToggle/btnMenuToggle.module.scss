@@ -1,0 +1,9 @@
+.btnMenuToggle {
+	display: none;
+}
+
+@media (max-width: $tablet) {
+	.btnMenuToggle {
+		display: block;
+	}
+}
