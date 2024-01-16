@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
 				<GlobalProvider>
 					<main className='container'>
 						<Header />
-						{children}
+						<div className='wrap'>{children}</div>
 					</main>
 					<MobileMenu />
 				</GlobalProvider>

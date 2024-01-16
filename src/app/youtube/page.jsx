@@ -27,16 +27,6 @@ export default async function Youtube() {
 
 				return (
 					<article key={data.id}>
-						<h2>{shortenText(data.snippet.title, 50)}</h2>
-
-						<div className={styles.txt}>
-							<p>{shortenText(data.snippet.description, 250)}</p>
-							<div className={styles.infoBox}>
-								<span>{customText(date, '.')}</span>
-								<em>{time.split('Z')[0]}</em>
-							</div>
-						</div>
-
 						<div className={styles.pic}>
 							<Link href={`/detail/${data.id}`}>
 								{/* 외부 이미지 연결 시, next.config.js 파일에 이미지 protocol 과 hostname 을 등록하고, <Image /> 컴포넌트에 fill, sizes, priority 속성 부여를 해야 함.  */}
@@ -48,6 +38,14 @@ export default async function Youtube() {
 									sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw,33vw'
 								/>
 							</Link>
+						</div>
+						<h2>{shortenText(data.snippet.title, 50)}</h2>
+						<div className={styles.txt}>
+							<p>{shortenText(data.snippet.description, 250)}</p>
+							<div className={styles.infoBox}>
+								<span>{customText(date, '.')}</span>
+								{/* <em>{time.split('Z')[0]}</em> */}
+							</div>
 						</div>
 					</article>
 				);

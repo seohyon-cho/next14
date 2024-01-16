@@ -26,4 +26,9 @@ body {
 	min-height: 100vh;
 	display: flex;
 	flex-wrap: wrap;
+
+	.wrap {
+		width: 100%;
+		padding: 70px 0;
+	}
 }
