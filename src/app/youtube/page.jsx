@@ -19,27 +19,35 @@ export default async function Youtube() {
 	const shortenText = useCustomText('short');
 	const customText = useCustomText('combined');
 	const data = await fetchYoutube();
-	console.log(data);
 	return (
 		<section className={clsx(styles.youtube)}>
 			<h1>Youtube</h1>
-			{data.items.map(data => {
+			{data.items.map((data, idx) => {
 				const [date, time] = data.snippet.publishedAt.split('T');
 
 				return (
 					<article key={data.id}>
 						<h2>{shortenText(data.snippet.title, 50)}</h2>
 
-						<div className='txt'>
+						<div className={styles.txt}>
 							<p>{shortenText(data.snippet.description, 250)}</p>
-							<div className='infoBox'>
+							<div className={styles.infoBox}>
 								<span>{customText(date, '.')}</span>
 								<em>{time.split('Z')[0]}</em>
 							</div>
 						</div>
 
-						<div className='pic'>
-							<Link href={`/detail/${data.id}`}>{/* <Image src={data.snippet.thumbnails.standard.url} alt={data.snippet.title} /> */}</Link>
+						<div className={styles.pic}>
+							<Link href={`/detail/${data.id}`}>
+								{/* 외부 이미지 연결 시, next.config.js 파일에 이미지 protocol 과 hostname 을 등록하고, <Image /> 컴포넌트에 fill, sizes, priority 속성 부여를 해야 함.  */}
+								{/* fill 속성 적용 시, 무조건 부모 요소에 position 값 (relative, absolute, fixed 중 하나) 이 무조건 설정되어 있어야 함.  */}
+								<Image
+									src={data.snippet.thumbnails.standard.url}
+									alt={data.snippet.title}
+									fill
+									sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw,33vw'
+								/>
+							</Link>
 						</div>
 					</article>
 				);
