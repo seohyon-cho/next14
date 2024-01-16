@@ -8,7 +8,10 @@ const nextConfig = {
 		prependData: `@import '@/styles/variables.scss';`
 	},
 	images: {
-		remotePatterns: [{ protocol: 'https', hostname: 'i.ytimg.com' }]
+		remotePatterns: [
+			{ protocol: 'https', hostname: 'i.ytimg.com' },
+			{ protocol: 'https', hostname: 'images.unsplash.com' }
+		]
 	}
 };
 
