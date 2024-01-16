@@ -19,8 +19,7 @@ export default async function Youtube() {
 		<section className={clsx(styles.youtube)}>
 			<h1>Youtube</h1>
 			{data.items.map((data, idx) => {
-				if (idx < 4) return <YoutubeCard key={data.id} data={data} isPriority={true} />;
-				return <YoutubeCard key={data.id} data={data} isPriority={false} />;
+				return <YoutubeCard key={data.id} data={data} isPriority={idx < 4 ? true : false} isPrefetch={idx < 6 ? false : true} />;
 			})}
 		</section>
 	);
