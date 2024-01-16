@@ -1,0 +1,40 @@
+.youtubeCard {
+	width: 30%;
+	margin-bottom: 80px;
+
+	.pic {
+		width: 100%;
+		height: 10vmax;
+		background: var(--text);
+		position: relative;
+		margin-bottom: 20px;
+
+		> a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: relative;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+	h2 {
+		font-size: 1rem;
+		margin-bottom: 10px;
+	}
+	.txt {
+		p {
+			font-size: 0.7rem;
+		}
+	}
+
+	.infoBox {
+		span {
+			font-size: 0.7rem;
+			color: var(--point);
+		}
+	}
+}
