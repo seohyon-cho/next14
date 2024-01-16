@@ -38,3 +38,22 @@
 		}
 	}
 }
+
+@media (max-width: $tablet) {
+	.youtubeCard {
+		width: 45%;
+		.pic {
+			height: 20vmin;
+		}
+	}
+}
+
+@media (max-width: $mobile) {
+	.youtubeCard {
+		width: 100%;
+
+		.pic {
+			height: 30vmin;
+		}
+	}
+}
