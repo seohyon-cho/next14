@@ -3,9 +3,12 @@ import clsx from 'clsx';
 import styles from './mobileMenu.module.scss';
 import { useGlobalData } from '@/hooks/useGlobalData';
 import { useEffect } from 'react';
+import { useThrottle } from '@/hooks/useThrottle';
 
 export default function MobileMenu() {
 	const { MenuOpen, setMenuOpen } = useGlobalData();
+	// useThrottle 커스텀 훅으로부터 throttling 적용 함수를 반환 받아 setThrottle 로 재정의.
+	const setThrottle = useThrottle();
 
 	useEffect(() => {
 		const closePanel = () => {
@@ -13,9 +16,12 @@ export default function MobileMenu() {
 			if (width >= 1000) setMenuOpen(false);
 		};
 
-		window.addEventListener('resize', closePanel);
-		return () => window.removeEventListener('resize', closePanel);
-	}, [setMenuOpen]);
+		// closePanel 함수에 throttling 적용
+		const throttledClosePanel = setThrottle(closePanel);
+
+		window.addEventListener('resize', throttledClosePanel);
+		return () => window.removeEventListener('resize', throttledClosePanel);
+	}, [setMenuOpen, setThrottle]);
 
 	return (
 		<>
