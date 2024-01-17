@@ -54,3 +54,25 @@ export const deletePost = async formData => {
 	revalidatePath('/post');
 	redirect('/post');
 };
+
+export const updatePost = async formData => {
+	'use server';
+
+	//수정페이지에서 입력한 input항목들을 받아서 객체로 비구조화할당
+	const { id, title, img, desc } = Object.fromEntries(formData);
+	//전달받은 각각의 값들을 새로운 객체로 wrapping 처리
+	// { title:title, img:img, desc:desc}
+	const updateObject = { title, img, desc };
+
+	try {
+		connectDB();
+		//모델명.findByIdAndUpdate('ObjectId.value', {수정할 document의 key: 수정할value, ...})
+		await Post.findByIdAndUpdate(id, updateObject);
+	} catch (err) {
+		console.log(err);
+		throw new Error('Fail to Update Post!!');
+	}
+
+	revalidatePath('/post');
+	redirect('/post');
+};
