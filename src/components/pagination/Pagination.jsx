@@ -33,7 +33,7 @@ export default function Pagination({ total, nums }) {
 					.fill()
 					.map((_, idx) => {
 						return (
-							<Link key={idx} href={`/post?page=${idx + 1}`}>
+							<Link key={idx} href={`/post?page=${idx + 1}`} className={clsx(idx + 1 === parseInt(page) ? styles.on : '')}>
 								{idx + 1}
 							</Link>
 						);
