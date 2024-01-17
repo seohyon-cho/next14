@@ -8,7 +8,7 @@ export const getPosts = async id => {
 		connectDB();
 		let posts = null;
 		if (id) posts = await Post.findById(id);
-		else posts = await Post.find();
+		else posts = await Post.find().sort({ _id: -1 });
 
 		return posts;
 	} catch (err) {
