@@ -1,12 +1,10 @@
 .pagination {
-	div {
-		a {
-			font-weight: bold;
-			color: var(--text);
+	a {
+		font-weight: bold;
+		color: var(--text);
 
-			&.on {
-				color: var(--point);
-			}
+		&.on {
+			color: var(--point);
 		}
 	}
 }
