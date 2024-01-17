@@ -2,6 +2,7 @@
 import clsx from 'clsx';
 import styles from './pagination.module.scss';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Pagination({ total, nums }) {
 	//useSearchParams훅으로 가져온 params값은 .get으로 값 반환, .set으로 값 세팅 가능
@@ -25,6 +26,19 @@ export default function Pagination({ total, nums }) {
 		<nav className={clsx(styles.pagination)}>
 			{isPrev && <button onClick={() => changePage('prev')}>prev</button>}
 			{isNext && <button onClick={() => changePage('next')}>next</button>}
+
+			<div>
+				{/* 전체 포스트 갯수대비 현재 페이지에 보일 갯수를 나눠서 전체 페이지버튼 갯수로 버튼 생성 */}
+				{Array(total % nums === 0 ? parseInt(total / nums) : parseInt(total / nums) + 1)
+					.fill()
+					.map((_, idx) => {
+						return (
+							<Link key={idx} href={`/post?page=${idx + 1}`}>
+								{idx + 1}
+							</Link>
+						);
+					})}
+			</div>
 		</nav>
 	);
 }
