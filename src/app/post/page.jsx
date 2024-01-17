@@ -10,6 +10,9 @@ export default async function Post() {
 	return (
 		<section className={clsx(styles.post)}>
 			<h1>Post</h1>
+			<nav>
+				<Link href='/post/write'>Write Post</Link>
+			</nav>
 			{posts.map(post => (
 				<article key={post._id}>
 					<div className={clsx(styles.pic)}>{post.img && <Image src={post.img} alt={post.title} priority fill />}</div>

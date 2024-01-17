@@ -14,3 +14,18 @@ export const getPosts = async id => {
 		throw new Error('Fail to fetch All posts data!!');
 	}
 };
+
+export const addPost = async formData => {
+	'use server';
+
+	const { title, img, desc } = Object.fromEntries(formData);
+
+	try {
+		connectDB();
+		const newPost = new Post({ title, img, desc });
+		await newPost.save();
+	} catch (err) {
+		console.log(err);
+		throw new Error('Fail to save Post!');
+	}
+};
