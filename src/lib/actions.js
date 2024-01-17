@@ -1,6 +1,7 @@
 import { connectDB } from './connectDB';
 import { Post } from './Models';
 import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
 
 export const getPosts = async id => {
 	try {
@@ -31,4 +32,5 @@ export const addPost = async formData => {
 	}
 
 	revalidatePath('/post');
+	redirect('/post');
 };
