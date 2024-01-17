@@ -17,7 +17,6 @@ export default async function PostDetail({ params }) {
 				<div className={clsx(styles.txt)}>
 					<h2>{post.title}</h2>
 					<p>{post.desc}</p>
-					<span>{post.createdAt}</span>
 				</div>
 			</article>
 		</section>

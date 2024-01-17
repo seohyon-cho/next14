@@ -1,5 +1,6 @@
 import { connectDB } from './connectDB';
 import { Post } from './Models';
+import { revalidatePath } from 'next/cache';
 
 export const getPosts = async id => {
 	try {
@@ -28,4 +29,6 @@ export const addPost = async formData => {
 		console.log(err);
 		throw new Error('Fail to save Post!');
 	}
+
+	revalidatePath('/post');
 };
