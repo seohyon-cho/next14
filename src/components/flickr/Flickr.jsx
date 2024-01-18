@@ -1,18 +1,16 @@
 'use client';
 import clsx from 'clsx';
-import styles from './unsplash.module.scss';
+import styles from './flickr.module.scss';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useGlobalData } from '@/hooks/useGlobalData';
 
-export default function Unsplash() {
-	const { ImgPanelOpen, setImgPanelOpen } = useGlobalData();
+export default function Flickr() {
+	const { ImgPanelOpen, setImgPanelOpen, setImgUrl } = useGlobalData();
 	const [Pics, setPics] = useState([]);
-	const [ImgUrl, setImgUrl] = useState('');
-	console.log(ImgUrl);
 
 	useEffect(() => {
-		const fetchUnsplash = async () => {
+		const fetchFlickr = async () => {
 			const num = 18;
 			const flickr_api = process.env.NEXT_PUBLIC_FLICKR_API;
 			const baseURL = `https://www.flickr.com/services/rest/?&api_key=${flickr_api}&per_page=${num}&format=json&nojsoncallback=1&method=`;
@@ -20,11 +18,10 @@ export default function Unsplash() {
 			const interestURL = `${baseURL}${method_interest}`;
 			const data = await fetch(interestURL);
 			const response = await data.json();
-			console.log(response.photos.photo);
 			setPics(response.photos.photo);
 		};
 
-		fetchUnsplash();
+		fetchFlickr();
 	}, []);
 
 	return (
@@ -42,7 +39,9 @@ export default function Unsplash() {
 										alt={pic.title}
 										priority
 										fill
-										onClick={() => setImgUrl(`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_b.jpg`)}
+										onClick={() => {
+											setImgUrl(`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_b.jpg`);
+										}}
 									/>
 								</p>
 							);

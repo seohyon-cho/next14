@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import styles from './edit.module.scss';
 import { getPosts, updatePost } from '@/lib/actions';
+import InputImage from '@/components/inputImage/InputImage';
 
 export default async function Edit({ params }) {
 	const { id } = params;
@@ -11,7 +12,7 @@ export default async function Edit({ params }) {
 			<form action={updatePost}>
 				<input type='hidden' name='id' value={id} />
 				<input type='text' name='title' defaultValue={data.title} />
-				<input type='text' name='img' defaultValue={data.img || ''} />
+				<InputImage data={data} />
 				<textarea name='desc' cols='30' rows='3' defaultValue={data.desc}></textarea>
 
 				<nav>
