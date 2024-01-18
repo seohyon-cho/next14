@@ -10,6 +10,7 @@ import { connectDB } from './connectDB';
 import { Post, User } from './Models';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import bcrypt from 'bcryptjs';
 
 export const getPosts = async id => {
 	try {
@@ -98,14 +99,18 @@ export const updatePost = async formData => {
 	redirect('/post');
 };
 
+// npm install bcryptjs (bcrypt 설치 명령어)
 // User 관련 actions
 export const addUser = async formData => {
-	const { username, email, password, repassword } = Object.fromEntries(formData);
+	const { username, email, img, password, repassword } = Object.fromEntries(formData);
 	if (password !== repassword) return;
+
+	const salt = await bcrypt.genSalt(10);
+	const hashedPassword = await bcrypt.hash(password, salt);
 
 	try {
 		connectDB();
-		const newUser = new User({ username, email, password });
+		const newUser = new User({ username, email, img, password: hashedPassword });
 		await newUser.save();
 	} catch (err) {
 		console.log(err);
