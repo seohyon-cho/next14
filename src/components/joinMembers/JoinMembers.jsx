@@ -1,10 +1,11 @@
 'use client';
 import clsx from 'clsx';
 import styles from './joinMembers.module.scss';
+import { addUser } from '@/lib/actions';
 
 export default function JoinMembers() {
 	return (
-		<form className={clsx(styles.joinMembers)}>
+		<form className={clsx(styles.joinMembers)} action={addUser}>
 			<input type='text' name='username' placeholder='user name' />
 			<input type='email' name='email' placeholder='user email' />
 			<input type='password' name='password' placeholder='password' />

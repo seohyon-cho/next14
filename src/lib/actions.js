@@ -1,5 +1,13 @@
+'use server';
+/*
+	해당 액션 함수 파일에서, 서버 컴포넌트뿐만 아니라, 클라이언트 컴포넌트에서도 호출하는 함수가 있다면, 
+	'use server'; 를 각각의 함수 안쪽에 입력하는 것이 아니라, actions.js 파일 자체의 상단에 한 번에 등록해야 함. (추천하는 방법)
+
+	또는, 클라이언트 컴포넌트에서 호출하는 action 함수 자체를 아예 다른 파일로 분리해야 함. 
+*/
+
 import { connectDB } from './connectDB';
-import { Post } from './Models';
+import { Post, User } from './Models';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
@@ -37,8 +45,6 @@ export const getPostsPage = async page => {
 };
 
 export const addPost = async formData => {
-	'use server';
-
 	const { title, img, desc } = Object.fromEntries(formData);
 
 	try {
@@ -55,8 +61,6 @@ export const addPost = async formData => {
 };
 
 export const deletePost = async formData => {
-	'use server';
-
 	try {
 		connectDB();
 		const data = Object.fromEntries(formData);
@@ -75,8 +79,6 @@ export const deletePost = async formData => {
 };
 
 export const updatePost = async formData => {
-	'use server';
-
 	//수정페이지에서 입력한 input항목들을 받아서 객체로 비구조화할당
 	const { id, title, img, desc } = Object.fromEntries(formData);
 	//전달받은 각각의 값들을 새로운 객체로 wrapping 처리
@@ -94,4 +96,22 @@ export const updatePost = async formData => {
 
 	revalidatePath('/post');
 	redirect('/post');
+};
+
+// User 관련 actions
+export const addUser = async formData => {
+	const { username, email, password, repassword } = Object.fromEntries(formData);
+	if (password !== repassword) return;
+
+	try {
+		connectDB();
+		const newUser = new User({ username, email, password });
+		await newUser.save();
+	} catch (err) {
+		console.log(err);
+		throw new Error('Fail to save User Data!');
+	}
+
+	revalidatePath('/');
+	redirect('/');
 };
