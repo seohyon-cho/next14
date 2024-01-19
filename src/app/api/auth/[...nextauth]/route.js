@@ -4,31 +4,5 @@
   프로젝트의 효율적인 관리를 위해, lib 폴더 안쪽의 auth.js에서 get, post 요청에 대한 서버 응답 함수를 만들어서 export 해준 내용을, 
   /api 라우터에서 import 하자마자 바로 export 처리.  
 */
-import CredentialsProvider from 'next-auth/providers/credentials';
-import NextAuth from 'next-auth/next';
 
-export const authOptions = {
-	pages: {
-		signIn: '/login'
-	},
-	providers: [
-		CredentialsProvider({
-			name: 'credentials',
-			credentials: {},
-			async authorize(credentials) {
-				try {
-					const user = await login(credentials);
-					console.log('this user is=', user);
-					return user;
-				} catch (err) {
-					console.log('Error =', err);
-					return null;
-				}
-			}
-		})
-	]
-};
-
-const handler = NextAuth(authOptions);
-
-export { handler as GET, handler as POST };
+export { GET, POST } from '@/lib/auth';

@@ -4,8 +4,10 @@ import { getPostsPage } from '@/lib/actions';
 import Image from 'next/image';
 import Link from 'next/link';
 import Pagination from '@/components/pagination/Pagination';
+import { auth } from '@/lib/auth';
 
 export default async function Post({ searchParams }) {
+	const session = await auth();
 	//현재 페이지에 전달된 query이 있으면 page의 값을 가져옴, 없으면 1로 초기화
 	const page = searchParams?.page || 1;
 	//현재 페이지 번호를 인수로 전달해서 페이지번호에 따른 전체포스트갯수, 출력할 포스트배열, 페이지당 출력할 갯수 반환

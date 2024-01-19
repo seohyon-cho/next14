@@ -1,14 +1,18 @@
 'use client';
 import clsx from 'clsx';
 import styles from './btnLogin.module.scss';
+import Link from 'next/link';
 
 export default function BtnLogin({ session }) {
-	const test = async () => {
-		await fetch('/api/auth');
-	};
 	return (
-		<button onClick={test} className={clsx(styles.btn, session ? styles.btnLogout : styles.btnLogin)}>
-			{session ? 'Logout' : 'Login'}
-		</button>
+		<>
+			{!session ? (
+				<Link href='/login' className={clsx(styles.btn, styles.btnLogin)}>
+					Login
+				</Link>
+			) : (
+				<button className={clsx(styles.btn, styles.btnLogout)}>Logout</button>
+			)}
+		</>
 	);
 }
