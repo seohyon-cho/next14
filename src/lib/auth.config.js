@@ -24,8 +24,8 @@ export const authConfig = {
 
 			const isLoginPage = request.nextUrl?.pathname.startsWith('/login');
 
-			if (isPostPage && !user) return false;
-			if (isLoginPage && user) return Response.redirect(new URL('/', request.nextUrl));
+			if (isPostPage && !user) return Response.redirect(new URL('/', request.nextUrl));
+			else if (isLoginPage && user) return Response.redirect(new URL('/', request.nextUrl));
 			return true;
 		}
 	}

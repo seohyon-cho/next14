@@ -2,6 +2,7 @@
 import clsx from 'clsx';
 import styles from './btnLogin.module.scss';
 import Link from 'next/link';
+import { handleLogout } from '@/lib/actions';
 
 export default function BtnLogin({ session }) {
 	return (
@@ -11,7 +12,9 @@ export default function BtnLogin({ session }) {
 					Login
 				</Link>
 			) : (
-				<button className={clsx(styles.btn, styles.btnLogout)}>Logout</button>
+				<form action={handleLogout}>
+					<button className={clsx(styles.btn, styles.btnLogout)}>Logout</button>
+				</form>
 			)}
 		</>
 	);

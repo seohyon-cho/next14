@@ -15,8 +15,8 @@ export default async function Header() {
 				<Link href='/'>DCODELAB</Link>
 			</h1>
 
-			<Navbar textArr={['about', 'youtube', 'post', 'join']} session={session} />
-			<BtnLogin session={false} />
+			<Navbar textArr={session?.user ? ['about', 'youtube', 'post'] : ['about', 'youtube', 'join']} session={session} />
+			<BtnLogin session={session} />
 			<BtnMenuToggle />
 		</header>
 	);
