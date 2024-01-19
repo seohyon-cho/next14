@@ -1,17 +1,17 @@
-'use server';
 /*
 	해당 액션 함수 파일에서, 서버 컴포넌트뿐만 아니라, 클라이언트 컴포넌트에서도 호출하는 함수가 있다면, 
 	'use server'; 를 각각의 함수 안쪽에 입력하는 것이 아니라, actions.js 파일 자체의 상단에 한 번에 등록해야 함. (추천하는 방법)
 
 	또는, 클라이언트 컴포넌트에서 호출하는 action 함수 자체를 아예 다른 파일로 분리해야 함. 
 */
+
+'use server';
 import { revalidatePath } from 'next/cache';
 import { connectDB } from './connectDB';
 import { Post, User } from './Models';
 import { redirect } from 'next/navigation';
 import { signIn, signOut } from './auth';
 import bcrypt from 'bcryptjs';
-
 export const getPosts = async id => {
 	try {
 		connectDB();
@@ -81,54 +81,29 @@ export const updatePost = async formData => {
 	redirect('/post');
 };
 
-//User 관련 actions
-export const addUser = async formData => {
-	const { username, email, img, password, repassword } = Object.fromEntries(formData);
-	if (password !== repassword) return;
-	const salt = await bcrypt.genSalt(10);
-	const hashedPassword = await bcrypt.hash(password, salt);
-	try {
-		connectDB();
-		const newUser = new User({ username, email, img, password: hashedPassword });
-		await newUser.save();
-		revalidatePath('/');
-		redirect('/');
-		return { success: true };
-	} catch (err) {
-		console.log(err);
-		throw new Error('Fail to save User Data!');
-	}
-};
-
-export const register = async (previousState, formData) => {
+//User 데이터 추가 서버액션 함수
+export const addUser = async (previousState, formData) => {
 	const { username, email, password, img, repassword } = Object.fromEntries(formData);
 
 	if (password !== repassword) {
 		return { error: 'Passwords do not match' };
 	}
-
 	try {
 		connectDB();
-
 		const user = await User.findOne({ username });
-
 		if (user) {
 			return { error: 'Username already exists' };
 		}
-
 		const salt = await bcrypt.genSalt(10);
 		const hashedPassword = await bcrypt.hash(password, salt);
-
 		const newUser = new User({
 			username,
 			email,
 			password: hashedPassword,
 			img
 		});
-
 		await newUser.save();
 		console.log('saved to db');
-
 		return { success: true };
 	} catch (err) {
 		console.log(err);
@@ -136,11 +111,11 @@ export const register = async (previousState, formData) => {
 	}
 };
 
+//로그인 서버액션 함수
 export const handleLogin = async (prevState, formData) => {
 	console.log('handleLogin');
 	const { username, password } = Object.fromEntries(formData);
 	console.log('인증값', username, password);
-
 	try {
 		await signIn('credentials', { username, password });
 		revalidatePath('/');
@@ -148,7 +123,6 @@ export const handleLogin = async (prevState, formData) => {
 	} catch (err) {
 		console.log('인증에러');
 		console.log(err);
-
 		if (err.message.includes('CredentialsSignin')) {
 			return { error: 'Invalid username or password' };
 		}
@@ -156,6 +130,7 @@ export const handleLogin = async (prevState, formData) => {
 	}
 };
 
+//로그아웃 서버액션 함수
 export const handleLogout = async () => {
 	'use server';
 	await signOut();
