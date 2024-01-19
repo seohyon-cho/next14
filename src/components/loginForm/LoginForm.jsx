@@ -3,6 +3,8 @@
 import { useFormState } from 'react-dom';
 import Link from 'next/link';
 import { handleLogin } from '@/lib/actions';
+import clsx from 'clsx';
+import styles from './loginForm.module.scss';
 
 export default function LoginForm() {
 	//useFormState를 쓰는 이유
@@ -12,14 +14,16 @@ export default function LoginForm() {
 	//에러 객체를 내보내는 대신 Error객체의 정보만 state로 받아서 error.jsx화면이동없이 에러 내용 확인 가능
 	const [state, formAction] = useFormState(handleLogin, undefined);
 	return (
-		<form action={formAction}>
-			<input type='text' placeholder='username' name='username' />
-			<input type='password' placeholder='password' name='password' />
-			<button>Login</button>
-			{state?.error}
-			<Link href='/join'>
-				{"Don't have an account?"} <b>Join</b>
-			</Link>
-		</form>
+		<article className={clsx(styles.loginForm)}>
+			<form action={formAction}>
+				<input type='text' placeholder='username' name='username' />
+				<input type='password' placeholder='password' name='password' />
+				<button>Login</button>
+				{state?.error}
+				<Link href='/join'>
+					{"Don't have an account?"} <b>Join</b>
+				</Link>
+			</form>
+		</article>
 	);
 }

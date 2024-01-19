@@ -28,10 +28,10 @@ const checkUserDB = async credentials => {
 		connectDB();
 
 		const user = await User.findOne({ username: credentials.username });
-		if (!user) throw new Error('Wrong credentials!');
+		if (!user) throw new Error('there is no username your input in DB!');
 
 		const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
-		if (!isPasswordCorrect) throw new Error('Wrong credentials!');
+		if (!isPasswordCorrect) throw new Error('no matched password from DB!');
 
 		return user;
 	} catch (err) {
