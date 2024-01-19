@@ -5,6 +5,7 @@ import { Post, User } from './Models';
 import { redirect } from 'next/navigation';
 import { signIn, signOut } from './auth';
 import bcrypt from 'bcryptjs';
+
 export const getPosts = async id => {
 	try {
 		connectDB();
@@ -87,12 +88,8 @@ export const addUser = async (previousState, formData) => {
 		}
 		const salt = await bcrypt.genSalt(10);
 		const hashedPassword = await bcrypt.hash(password, salt);
-		const newUser = new User({
-			username,
-			email,
-			password: hashedPassword,
-			img
-		});
+
+		const newUser = new User(tempUser);
 		await newUser.save();
 		console.log('saved to db');
 		return { success: true };
