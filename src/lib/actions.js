@@ -1,10 +1,3 @@
-/*
-	해당 액션 함수 파일에서, 서버 컴포넌트뿐만 아니라, 클라이언트 컴포넌트에서도 호출하는 함수가 있다면, 
-	'use server'; 를 각각의 함수 안쪽에 입력하는 것이 아니라, actions.js 파일 자체의 상단에 한 번에 등록해야 함. (추천하는 방법)
-
-	또는, 클라이언트 컴포넌트에서 호출하는 action 함수 자체를 아예 다른 파일로 분리해야 함. 
-*/
-
 'use server';
 import { revalidatePath } from 'next/cache';
 import { connectDB } from './connectDB';
@@ -80,11 +73,9 @@ export const updatePost = async formData => {
 	revalidatePath('/post');
 	redirect('/post');
 };
-
 //User 데이터 추가 서버액션 함수
 export const addUser = async (previousState, formData) => {
 	const { username, email, password, img, repassword } = Object.fromEntries(formData);
-
 	if (password !== repassword) {
 		return { error: 'Passwords do not match' };
 	}
@@ -110,7 +101,6 @@ export const addUser = async (previousState, formData) => {
 		return { error: 'Something went wrong!' };
 	}
 };
-
 //로그인 서버액션 함수
 export const handleLogin = async (prevState, formData) => {
 	console.log('handleLogin');
@@ -130,7 +120,7 @@ export const handleLogin = async (prevState, formData) => {
 	}
 };
 
-// 깃허브 로그인 서버액션 함수
+//깃허브 로그인 서버액션 함수
 export const handleGitHubLogin = async () => {
 	await signIn('github');
 };

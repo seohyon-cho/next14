@@ -1,6 +1,5 @@
 //굳이  auth.config파일을 따로 분리한 이유
 //해당 파일은 middleware.js에서 authConfig객체의 결과값만 따로 활용하기 위함
-
 export const authConfig = {
 	pages: {
 		//signIn함수가 실행될때 기본으로 redirect되는 path지정
