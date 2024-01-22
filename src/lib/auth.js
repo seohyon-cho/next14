@@ -98,3 +98,25 @@ export const {
 		...authConfig.callbacks
 	}
 });
+
+/*
+	NextAuth() 메서드 호출 시 전달되는 인수 값 종류 및 의미 
+
+	- pages : 로그인 요청이 시작 되는 라우터 등록 (auth.config)
+	- providers : credentials, github, google등 vender 정보를 기입
+	- callbacks : 로그인 인증 결과 후, 동기적으로 실행될 함수들
+			- signIn() : 로그인이 성공했을 때 실행될 함수, 로그인 정보 추출 및 DB 저장
+			- jwt() : signIn 함수에서 추출한 정보 값을 token에 옮겨담은 뒤 내보냄. 
+			- session() : 넘겨 받은 token 값을 전역 session에 등록함. 
+			- authorized() : 최종 로그인 인증 결과에 따라 true, false 값을 반환 (auth.config)
+
+	------------------------
+
+	- middleware.js : NextAuth에서 authorized()가 반환하는 true, false 값에 따라 강제 라우터 이동 처리 (auth.config에 등록된 pages, authorized값 필요)
+			(	authorized, pages의 정보값을 필요로 하므로 이 둘에서 정보를 추출해서 미들웨어에서 활용. )
+
+	로그인이 되어있으면 -> 강제로 메인 페이지로 이동
+	로그인이 실패하면 -> 다시 로그인 페이지로 이동 
+
+
+*/
