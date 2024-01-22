@@ -6,7 +6,7 @@ import { auth } from '@/lib/auth';
 
 export default async function Write() {
 	const session = await auth();
-	console.log('write', session.user.email);
+
 	return (
 		<>
 			<section className={clsx(styles.write)}>
