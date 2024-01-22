@@ -34,10 +34,11 @@ export const getPostsPage = async page => {
 	}
 };
 export const addPost = async formData => {
-	const { title, img, desc } = Object.fromEntries(formData);
+	const { title, img, desc, username } = Object.fromEntries(formData);
 	try {
 		connectDB();
-		const newPost = new Post({ title, img, desc });
+		const newPost = new Post({ title, img, desc, username });
+		console.log('addPost', newPost);
 		await newPost.save();
 	} catch (err) {
 		console.log(err);
@@ -73,6 +74,17 @@ export const updatePost = async formData => {
 	}
 	revalidatePath('/post');
 	redirect('/post');
+};
+
+export const getUser = async username => {
+	try {
+		connectDB();
+		const user = await User.findOne({ username: username });
+		return user;
+	} catch (err) {
+		console.log(err);
+		throw new Error('Fail to fetch User Info!');
+	}
 };
 //User 데이터 추가 서버액션 함수
 export const addUser = async (previousState, formData) => {
