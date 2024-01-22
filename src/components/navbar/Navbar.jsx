@@ -11,7 +11,7 @@ export default function Navbar({ textArr, session }) {
 	const pathName = usePathname();
 	return (
 		<nav className={clsx(styles.navbar)}>
-			{session?.user ? '로그인됨' : '비로그인상태'}
+			{session?.user ? session.user.email : '비로그인상태'}
 			{textArr.map(txt => (
 				<Link key={txt} href={`/${txt}`} className={clsx(pathName === '/' + txt ? styles.on : '')}>
 					{setCapitalize(txt)}
