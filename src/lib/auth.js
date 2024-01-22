@@ -81,6 +81,24 @@ export const {
 			}
 			if (account.provider === 'google') {
 				console.log('google', account);
+				// console.log('googleProfile', profile); (google 계정에서 어떤 property로 정보값을 가져올 수 있는지 확인 가능)
+				connectDB();
+				try {
+					const user = await User.findOne({ email: profile.email });
+
+					if (!user) {
+						const newUser = new User({
+							username: profile.name,
+							email: profile.email,
+							img: profile.picture
+						});
+
+						await newUser.save();
+					}
+				} catch (err) {
+					console.log(err);
+					return false;
+				}
 			}
 			return true;
 		},
