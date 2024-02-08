@@ -6,7 +6,8 @@ const userSchema = new mongoose.Schema(
 		email: { type: String, required: true },
 		password: { type: String },
 		img: { type: String },
-		owner: { type: Boolean, default: false }
+		owner: { type: Boolean, default: false },
+		addmessage: { type: String } //
 	},
 	{ timestamps: true }
 );

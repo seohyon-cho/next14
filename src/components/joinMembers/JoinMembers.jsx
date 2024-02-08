@@ -20,7 +20,7 @@ export default function JoinMembers() {
 			<input type='email' name='email' placeholder='email' />
 			<input type='password' name='password' placeholder='password' />
 			<input type='password' name='repassword' placeholder='re-password' />
-
+			<textarea name='addmessage' placeholder='message' cols='30' rows='10' />
 			<input type='reset' value='cancel' />
 			<input type='submit' value='register' />
 			{state?.error}

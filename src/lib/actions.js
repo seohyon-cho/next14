@@ -100,7 +100,7 @@ export const getUser = async email => {
 };
 
 export const addUser = async (previousState, formData) => {
-	const { username, email, password, img, repassword } = Object.fromEntries(formData);
+	const { username, email, password, img, repassword, addmessage } = Object.fromEntries(formData);
 
 	if (password !== repassword) return { error: 'Passwords do not match' };
 
@@ -118,7 +118,8 @@ export const addUser = async (previousState, formData) => {
 			username,
 			email,
 			password: hashedPassword,
-			img
+			img,
+			addmessage
 		});
 
 		await newUser.save();
