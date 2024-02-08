@@ -3,6 +3,7 @@ import '@/styles/globals.scss';
 import Header from '@/components/header/Header';
 import { GlobalProvider } from '@/hooks/useGlobalData';
 import MobileMenu from '@/components/mobileMenu/MobileMenu';
+import '@uploadthing/react/styles.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
