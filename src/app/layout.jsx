@@ -4,6 +4,7 @@ import Header from '@/components/header/Header';
 import { GlobalProvider } from '@/hooks/useGlobalData';
 import MobileMenu from '@/components/mobileMenu/MobileMenu';
 import '@uploadthing/react/styles.css';
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
