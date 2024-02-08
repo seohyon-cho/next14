@@ -1,2 +1,14 @@
 .join {
+	border: 1px solid #e0d7cb;
+	position: relative;
+	margin-top: 50px;
+	h1.title {
+		position: absolute;
+		font-size: 14rem;
+		width: 100%;
+		text-align: center;
+		z-index: -1;
+		color: rgba(255, 255, 255, 0.5);
+		letter-spacing: -10px;
+	}
 }

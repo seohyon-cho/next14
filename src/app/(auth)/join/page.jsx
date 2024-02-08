@@ -5,7 +5,7 @@ import JoinMembers from '@/components/joinMembers/JoinMembers';
 export default function Join() {
 	return (
 		<section className={clsx(styles.join)}>
-			<h1>Join</h1>
+			<h1 className={clsx(styles.title)}>Join Us</h1>
 			<JoinMembers />
 		</section>
 	);

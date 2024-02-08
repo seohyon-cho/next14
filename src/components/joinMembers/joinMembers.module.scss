@@ -1,2 +1,108 @@
-.joinMembers {
+.joinWrap {
+	min-height: 200px;
+	display: flex;
+	margin-top: 180px;
+	.contactInfo {
+		width: 30%;
+		list-style: none;
+		padding: 4vw;
+		li.btn {
+			width: 100%;
+			height: 50px;
+			border: 1px solid black;
+			border-radius: 50px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 40px;
+			background: #111;
+			color: white;
+			position: relative;
+			cursor: pointer;
+
+			&:hover {
+				span {
+					.icon {
+						transform: translateX(30px);
+					}
+				}
+			}
+
+			span {
+				overflow: hidden;
+				position: absolute;
+				left: 10px;
+				width: 30px;
+				height: 30px;
+				background: white;
+				border-radius: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: black;
+				.icon {
+					transition: 0.3s;
+				}
+			}
+		}
+		li.text {
+			width: 100%;
+			font-size: 0.9rem;
+			line-height: 1.5;
+			font-weight: 500;
+		}
+	}
+	.joinMembers {
+		width: 70%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		.btnSet {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 40px;
+			margin-bottom: 40px;
+			input {
+				border: none;
+				width: 150px;
+				height: 50px;
+				border-radius: 50px;
+				font-size: 1.2rem;
+				cursor: pointer;
+				transition: 0.3s;
+				&:nth-child(1) {
+					background: #b7b7b7;
+					color: white;
+				}
+				&:hover {
+					background: #333;
+					color: white;
+				}
+			}
+		}
+		.inputSet {
+			width: 45%;
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 60px;
+			input {
+				border: none;
+				outline: 0;
+				height: 40px;
+				background: none;
+				border-bottom: 2px solid #555;
+			}
+		}
+		.last {
+			width: 100%;
+			textarea {
+				outline: 0;
+				background: none;
+				border: none;
+				border-bottom: 2px solid #555;
+			}
+		}
+	}
 }
