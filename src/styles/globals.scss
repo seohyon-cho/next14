@@ -1,6 +1,6 @@
 :root {
 	--bg: #efefef;
-	--text: #333;
+	--text: #222;
 	--point: hotpink;
 }
 
@@ -23,12 +23,14 @@ body {
 .container {
 	width: 80vw;
 	margin: 0 auto;
-	min-height: 100vh;
+	// min-height: 100vh;
+	border: 1px solid red;
 	display: flex;
 	flex-wrap: wrap;
 
 	.wrap {
 		width: 100%;
-		padding: 70px 0;
+
+		padding-top: 100px;
 	}
 }

@@ -6,7 +6,6 @@ export const authConfig = {
 			if (user) {
 				token.id = user.id;
 				token.owner = token.email === 'flanique@naver.com' ? true : false;
-				//console.log('auth', token);
 			}
 			return token;
 		},

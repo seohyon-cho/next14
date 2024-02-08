@@ -12,7 +12,6 @@ async function fetchYoutubeById(id) {
 
 export default async function Detail({ params }) {
 	const { id } = params;
-	console.log(id);
 	const data = await fetchYoutubeById(id);
 
 	return (

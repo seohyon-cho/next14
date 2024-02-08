@@ -4,10 +4,9 @@ import YoutubeCard from '@/components/youtubeCard/YoutubeCard';
 
 async function fetchYoutube() {
 	const api_key = process.env.NEXT_PUBLIC_YOUTUBE_API;
-	const pid = 'PLIenA9X9sYejBz8kBsdDV-BbZTeDJeTEH';
+	const pid = 'PLYOPkdUKSFgUJeKpDIbI0H1wwgQO-hCZF';
 	const num = 10;
 	const baseURL = `https://www.googleapis.com/youtube/v3/playlistItems?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${num}`;
-
 	const data = await fetch(baseURL);
 	const resultData = await data.json();
 	return resultData;

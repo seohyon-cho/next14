@@ -1,13 +1,15 @@
 .header {
-	width: 100%;
+	width: 80vw;
 	height: 100px;
 	border-bottom: 1px solid var(--text);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	gap: 50px;
-
+	position: absolute;
+	z-index: 1;
 	h1 {
-		font-size: 1.5rem;
+		font-size: 3.3rem;
+		letter-spacing: -4px;
 	}
 }
