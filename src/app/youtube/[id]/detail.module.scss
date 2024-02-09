@@ -1,0 +1,14 @@
+// section.detail
+// h1
+// article > div.videoBox > iframe, h3, p
+
+section.detail {
+	border: 1px solid blue;
+	.backBtn {
+		border: 1px solid black;
+		display: inline-block;
+		padding: 3px 7px;
+		font-size: 1.3rem;
+		cursor: pointer;
+	}
+}

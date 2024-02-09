@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import styles from './detail.module.scss';
+import Link from 'next/link';
 
 async function fetchYoutubeById(id) {
 	const api_key = process.env.NEXT_PUBLIC_YOUTUBE_API;
@@ -16,6 +17,9 @@ export default async function Detail({ params }) {
 
 	return (
 		<section className={clsx(styles.detail)}>
+			<Link href={`/youtube`}>
+				<div className={clsx(styles.backBtn)}>Go to Back</div>
+			</Link>
 			<h1>Detail</h1>
 			<article>
 				<div className={styles.videoBox}>
