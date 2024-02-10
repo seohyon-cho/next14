@@ -6,6 +6,9 @@ import { auth } from '@/lib/auth';
 import ImageUploader from '@/components/uploadImage/UploadImage';
 import BtnSubmit from '@/components/btnSubmit/BtnSubmit';
 
+// 신규 post 업로드 오류 뜨는 현상 해결
+// 오류 내용 : MongoServerError: E11000 duplicate key error collection: test.posts index: username_1 dup key: { username: null }
+// mongodb index 들어가보니 username_1 이라는 index가 중복 생성되어 있어서 발생하는 오류였음. 삭제하니 해결
 export default async function Write() {
 	const session = await auth();
 
