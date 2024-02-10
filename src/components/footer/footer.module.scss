@@ -1,0 +1,58 @@
+.footer {
+	padding: 20px 0;
+	width: 80vw;
+	border-top: 1px solid #222;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	.footerTitle {
+		letter-spacing: -2.5px;
+		font-size: 2rem;
+	}
+	ul {
+		list-style: none;
+		display: flex;
+		gap: 10px;
+		li {
+			cursor: pointer;
+		}
+	}
+	.menu {
+		font-size: 0.7rem;
+		li {
+			button {
+				background: none;
+				border: none;
+				font-size: 0.7rem;
+				color: #222;
+				cursor: pointer;
+			}
+		}
+	}
+	.mediaIcons {
+		li {
+			border: 1px solid #222;
+			width: 30px;
+			height: 30px;
+			border-radius: 100%;
+			a {
+				line-height: 0;
+				width: 100%;
+				height: 100%;
+				border-radius: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+	}
+	p {
+		font-size: 0.7rem;
+	}
+
+	h1 {
+		font-size: 3.3rem;
+		letter-spacing: -4px;
+	}
+}

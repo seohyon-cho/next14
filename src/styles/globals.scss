@@ -23,14 +23,16 @@ body {
 .container {
 	width: 80vw;
 	margin: 0 auto;
-	// min-height: 100vh;
-	border: 1px solid red;
 	display: flex;
 	flex-wrap: wrap;
+	.footer {
+		position: relative;
+		margin: 0 auto;
+		z-index: 1;
+	}
 
 	.wrap {
 		width: 100%;
-
 		padding-top: 100px;
 	}
 }
