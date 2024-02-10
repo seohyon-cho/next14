@@ -16,7 +16,11 @@ export default async function Youtube() {
 	const data = await fetchYoutube();
 	return (
 		<section className={clsx(styles.youtube)}>
-			<h1>Youtube</h1>
+			<h1>
+				Our
+				<br />
+				Content.
+			</h1>
 			{data.items.map((data, idx) => {
 				return <YoutubeCard key={data.id} data={data} isPriority={idx < 4 ? true : false} isPrefetch={idx < 6 ? false : true} />;
 			})}

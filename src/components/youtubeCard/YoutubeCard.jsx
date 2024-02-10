@@ -3,13 +3,17 @@ import styles from './youtubeCard.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useCustomText } from '@/hooks/useText';
+import { FaArrowRightLong } from 'react-icons/fa6';
+import { IoSearch } from 'react-icons/io5';
+
 export default function YoutubeCard({ data, isPriority, isPrefetch }) {
 	const shortenText = useCustomText('short');
 	const customText = useCustomText('combined');
 	const [date, time] = data.snippet.publishedAt.split('T');
 	return (
 		<article className={clsx(styles.youtubeCard)}>
-			<div className={styles.pic}>
+			<h2>{shortenText(data.snippet.title, 45)}</h2>
+			<div className={clsx(styles.pic)}>
 				<Link href={`/youtube/${data.id}`} prefetch={isPrefetch}>
 					<Image
 						src={data.snippet.thumbnails.standard.url}
@@ -20,13 +24,19 @@ export default function YoutubeCard({ data, isPriority, isPrefetch }) {
 					/>
 				</Link>
 			</div>
-			<h2>{shortenText(data.snippet.title, 50)}</h2>
-			<div className={styles.txt}>
-				<p>{shortenText(data.snippet.description, 250)}</p>
-				<div className={styles.infoBox}>
-					<span>{customText(date, '.')}</span>
-				</div>
+			<div className={clsx(styles.txt)}>
+				<span>{customText(date, '.')}</span>
+				<p>{shortenText(data.snippet.description, 160)}</p>
 			</div>
+			<Link href={`/youtube/${data.id}`} prefetch={isPrefetch}>
+				<div className={clsx(styles.btnDetail)}>
+					<span>
+						<FaArrowRightLong className={clsx(styles.icon)} />
+						<IoSearch className={clsx(styles.icon2)} />
+					</span>
+					Learn more
+				</div>
+			</Link>
 		</article>
 	);
 }
