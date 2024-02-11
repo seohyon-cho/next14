@@ -1,14 +1,29 @@
 .pagination {
-	display: inline-block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
 	width: 100%;
 	text-align: center;
 	margin: 20px 0 70px;
 	a {
 		color: var(--text);
+		margin-top: 2px;
 
 		&.on {
 			font-weight: bold;
 			color: var(--point);
+		}
+	}
+	button {
+		border: none;
+		background: none;
+		cursor: pointer;
+		font-size: 1.2rem;
+		line-height: 0;
+		transition: 0.3s;
+		&:hover {
+			color: white;
 		}
 	}
 }
