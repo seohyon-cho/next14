@@ -1,9 +1,13 @@
 .pagination {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	margin: 20px 0 70px;
 	a {
-		font-weight: bold;
 		color: var(--text);
 
 		&.on {
+			font-weight: bold;
 			color: var(--point);
 		}
 	}

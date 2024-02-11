@@ -10,7 +10,16 @@ export default async function UserInfo({ email }) {
 		<article className={clsx(styles.userInfo)}>
 			<p>{user?.email}</p>
 			<div className={styles.pic}>
-				<Image src={user?.img} width={50} height={50} alt={user?.email} />
+				<Image
+					src={
+						user?.img
+							? user?.img
+							: 'https://emojiisland.com/cdn/shop/products/Nerd_with_Glasses_Emoji_2a8485bc-f136-4156-9af6-297d8522d8d1_large.png?v=1571606036'
+					}
+					width={50}
+					height={50}
+					alt={user?.email}
+				/>
 			</div>
 		</article>
 	);
