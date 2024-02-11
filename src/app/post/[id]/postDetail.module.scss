@@ -1,41 +1,112 @@
+.backBtn {
+	margin: 10px 0;
+	display: inline-block;
+	padding: 3px 7px;
+	font-size: 1.3rem;
+	cursor: pointer;
+	color: rgba(11, 11, 11, 0.5);
+	transition: 0.4s;
+	&:hover {
+		color: rgba(11, 11, 11, 1);
+	}
+}
 .postDetail {
 	width: 100%;
-
-	h1 {
-		width: 100%;
-		margin-bottom: 50px;
-		font-size: 2rem;
-		font-weight: normal;
-	}
-
-	article {
+	margin-bottom: 30px;
+	padding: 10px;
+	background-color: rgba(255, 255, 255, 0.4);
+	> article {
+		border: 1px solid rgba(0, 0, 0, 0.5);
+		padding: 20px;
 		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
 
 		.pic {
-			width: 45%;
+			width: 50%;
 			height: 60vh;
-			background: var(--text);
 			position: relative;
 
 			img {
+				padding-right: 20px;
+				border-right: 1px solid rgba(0, 0, 0, 0.5);
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
 			}
 		}
 		.txt {
-			width: 45%;
-
+			width: 50%;
+			padding-left: 20px;
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
 			h2 {
-				font-size: 1.2rem;
-				font-weight: normal;
-				margin-bottom: 50px;
+				font-size: 1.8rem;
+				font-weight: 500;
+				padding-top: 20px;
 			}
-			p {
-				font-size: 0.8rem;
+			.date {
+				display: flex;
+				gap: 30px;
+				p.writeDate {
+					font-size: 0.8rem;
+				}
+				p.editDate {
+					font-size: 0.8rem;
+				}
+			}
+			p.desc {
+				font-size: 1rem;
+				line-height: 1.5;
+			}
+			> article {
+				display: flex;
+				align-items: center;
+				flex-direction: row-reverse;
+				justify-content: start;
+				gap: 10px;
+				p {
+					font-size: 0.9rem;
+				}
+				div {
+					width: 50px;
+					height: 50px;
+					border: 1px solid rgba(0, 0, 0, 0.3);
+					background-color: rgba(255, 255, 255, 0.3);
+					padding: 4px;
+					img {
+						width: 100%;
+						height: 100%;
+						vertical-align: middle;
+					}
+				}
+			}
+			> nav {
+				padding-right: 10px;
+				display: flex;
+				justify-content: end;
+				align-items: end;
+
+				gap: 20px;
+				height: 100%;
+				a {
+					font-size: 1.5rem;
+					line-height: 0;
+				}
+				form {
+					nav {
+						button {
+							background: none;
+							border: none;
+							font-size: 1.5rem;
+							cursor: pointer;
+							line-height: 0;
+							vertical-align: middle;
+						}
+					}
+				}
 			}
 		}
 	}
