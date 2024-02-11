@@ -27,7 +27,9 @@ export default function Home() {
 						<h3>Seohyon, Cho</h3>
 						<p>Front-end Project</p>
 					</div>
-					<FaGithub className={clsx(styles.icon)} />
+					<a href='https://github.com/seohyon-cho' target='_blank' rel='noopener noreferrer'>
+						<FaGithub className={clsx(styles.icon)} />
+					</a>
 				</div>
 			</div>
 		</main>
