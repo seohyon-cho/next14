@@ -28,9 +28,12 @@ export default function InputImage({ data }) {
 
 				value={ImgUrl ? ImgUrl : data?.img || ''}
 				name='img'
+				id='img'
 				onChange={e => setImgUrl(e.target.value)}
 			/>
-			<span onClick={() => setImgPanelOpen(true)}>추천 이미지</span>
+			<p onClick={() => setImgPanelOpen(true)}>
+				<span>Recommend Image</span>
+			</p>
 			<Flickr />
 		</>
 	);
