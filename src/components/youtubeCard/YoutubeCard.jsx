@@ -34,7 +34,7 @@ export default function YoutubeCard({ data, isPriority, isPrefetch }) {
 						<FaArrowRightLong className={clsx(styles.icon)} />
 						<IoSearch className={clsx(styles.icon2)} />
 					</span>
-					Learn more
+					<p>Learn more</p>
 				</div>
 			</Link>
 		</article>
