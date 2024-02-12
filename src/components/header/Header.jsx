@@ -4,11 +4,8 @@ import Link from 'next/link';
 import Navbar from '../navbar/Navbar';
 import BtnLogin from '../btnLogin/BtnLogin';
 import BtnMenuToggle from '../btnMenuToggle/BtnMenuToggle';
-import { auth } from '@/lib/auth';
 
-export default async function Header() {
-	const session = await auth();
-
+export default async function Header({ session }) {
 	return (
 		<header className={clsx(styles.header)}>
 			<h1>

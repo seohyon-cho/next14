@@ -2,11 +2,9 @@ import clsx from 'clsx';
 import styles from './footer.module.scss';
 import { FaTwitter, FaFacebookSquare, FaInstagram } from 'react-icons/fa';
 import Link from 'next/link';
-import { auth } from '@/lib/auth';
 import { handleLogout } from '@/lib/actions';
 
-export default async function Footer() {
-	const session = await auth();
+export default async function Footer({ session }) {
 	return (
 		<footer className={clsx(styles.footer)}>
 			<h1 className={clsx(styles.footerTitle)}>Blog.</h1>
