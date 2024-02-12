@@ -1,8 +1,10 @@
 'use client';
-
+import clsx from 'clsx';
+import styles from './inputImage.module.scss';
 import { useGlobalData } from '@/hooks/useGlobalData';
 import Flickr from '../flickr/Flickr';
 import { useEffect } from 'react';
+import ImageUploader from '@/components/uploadImage/UploadImage';
 
 export default function InputImage({ data }) {
 	const { ImgUrl, setImgUrl, setImgPanelOpen } = useGlobalData();
@@ -31,9 +33,12 @@ export default function InputImage({ data }) {
 				id='img'
 				onChange={e => setImgUrl(e.target.value)}
 			/>
-			<p onClick={() => setImgPanelOpen(true)}>
-				<span>Recommend Image</span>
-			</p>
+			<div className={clsx(styles.attachImg)}>
+				<p onClick={() => setImgPanelOpen(true)}>
+					<span>Recommend Image</span>
+				</p>
+				<ImageUploader />
+			</div>
 			<Flickr />
 		</>
 	);

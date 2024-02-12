@@ -23,7 +23,7 @@ section.edit {
 				flex-wrap: wrap;
 				justify-content: space-between;
 				margin-bottom: 30px;
-				label {
+				> label {
 					font-size: 1.2rem;
 					width: 25%;
 					text-align: center;
@@ -48,38 +48,6 @@ section.edit {
 					background: none;
 					&:focus {
 						background: rgba(255, 255, 255, 0.4);
-					}
-				}
-				> p {
-					margin-left: 16.2vw;
-					cursor: pointer;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					width: 152px;
-					height: 30px;
-					padding: 2px;
-					background: rgba(0, 0, 0, 0.7);
-					border: 1px solid rgba(255, 255, 255, 0.5);
-					color: white;
-					margin-top: 15px;
-					transition: 0.4s;
-					span {
-						font-size: 0.9rem;
-						border: 1px solid rgba(255, 255, 255, 0.5);
-						display: flex;
-						justify-content: center;
-						align-items: center;
-						width: 100%;
-						height: 100%;
-					}
-					&:hover {
-						background: white;
-						color: black;
-						border: 1px solid rgba(0, 0, 0, 0.5);
-						span {
-							border: 1px solid rgba(0, 0, 0, 0.5);
-						}
 					}
 				}
 				textarea {

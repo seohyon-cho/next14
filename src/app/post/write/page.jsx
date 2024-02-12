@@ -3,7 +3,7 @@ import styles from './write.module.scss';
 import { addPost } from '@/lib/actions';
 import InputImage from '@/components/inputImage/InputImage';
 import { auth } from '@/lib/auth';
-import ImageUploader from '@/components/uploadImage/UploadImage';
+// import ImageUploader from '@/components/uploadImage/UploadImage';
 import BtnSubmit from '@/components/btnSubmit/BtnSubmit';
 
 // 신규 post 업로드 오류 뜨는 현상 해결
@@ -15,21 +15,38 @@ export default async function Write() {
 	return (
 		<>
 			<section className={clsx(styles.write)}>
-				<h1>Write Post</h1>
+				<h1>Write Your Own Post!</h1>
+				<div className={clsx(styles.inner)}>
+					<form action={addPost}>
+						<input type='hidden' name='email' defaultValue={session.user.email} />
 
-				<form action={addPost}>
-					<input type='hidden' name='email' defaultValue={session.user.email} />
-					<input type='text' placeholder='title' name='title' />
-					<InputImage />
-					<ImageUploader />
-					<textarea name='desc' cols='30' rows='3' placeholder='description'></textarea>
+						<div>
+							<label htmlFor='title'>
+								<span>Title</span>
+							</label>
+							<input type='text' id='title' name='title' placeholder='Title' />
+						</div>
 
-					<nav>
-						<input type='reset' value='cancel' />
-						{/* <input type='submit' value='write' /> */}
-						<BtnSubmit />
-					</nav>
-				</form>
+						<div>
+							<label htmlFor='img'>
+								<span>Image</span>
+							</label>
+							<InputImage />
+						</div>
+
+						<div>
+							<label htmlFor='detail'>
+								<span>Detail</span>
+							</label>
+							<textarea name='desc' cols='30' rows='10' placeholder='description'></textarea>
+						</div>
+
+						<nav>
+							<input type='reset' value='cancel' />
+							<BtnSubmit />
+						</nav>
+					</form>
+				</div>
 			</section>
 		</>
 	);
