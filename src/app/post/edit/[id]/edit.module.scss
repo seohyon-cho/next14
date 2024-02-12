@@ -56,6 +56,7 @@ section.edit {
 					background: none;
 					border-bottom: 1px solid #333;
 					outline: 0;
+					resize: none;
 					&:focus {
 						background: rgba(255, 255, 255, 0.4);
 					}

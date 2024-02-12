@@ -12,6 +12,7 @@
     "@uploadthing/react": "^6.2.0",
     "bcryptjs": "^2.4.3",
     "clsx": "^2.1.0",
+    "framer-motion": "^4.1.17",
     "mongoose": "^8.0.4",
     "next": "14.0.4",
     "next-auth": "^5.0.0-beta.3",

@@ -1,6 +1,7 @@
-.unsplash {
+aside.unsplash {
 	width: 300px;
 	height: 100vh;
+	overflow-y: scroll;
 	position: fixed;
 	background: var(--text);
 	top: 0;
@@ -11,26 +12,81 @@
 	h1 {
 		font-size: 1.5rem;
 		color: var(--bg);
-		font-weight: normal;
-		margin-bottom: 100px;
+		font-weight: 300;
+	}
+	button.closeBtn {
+		border: none;
+		background: none;
+		position: absolute;
+		left: 15px;
+		top: 15px;
+		.closeIcon {
+			color: rgba(255, 255, 255, 0.7);
+			font-size: 1.4rem;
+			cursor: pointer;
+		}
+	}
+	div.nav {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		gap: 10px;
+		margin: 30px 0;
+		input {
+			width: 65%;
+			color: var(--bg);
+			border-bottom: 1px solid var(--bg);
+			&:focus {
+				background: rgba(255, 255, 255, 0.1);
+			}
+		}
+		button.submitBtn {
+			background: var(--bg);
+			width: 35%;
+			cursor: pointer;
+			border: none;
+			padding: 2px;
+			transition: 0.4s;
+			&:hover {
+				background: #333;
+				color: var(--bg);
+				border: 0.5px solid var(--bg);
+				span {
+					border: 1px solid var(--bg);
+				}
+			}
+			span {
+				padding: 2px 0;
+				width: 100%;
+				height: 100%;
+				border: 1px solid #333;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
 	}
 
-	div {
+	div.gallery {
 		width: 100%;
 		height: auto;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
 
-		p {
+		div.content {
+			cursor: pointer;
+			border: 1px solid rgba(255, 255, 255, 0.7);
 			width: 30%;
-			height: 80px;
+			height: 70px;
 			position: relative;
 			margin-bottom: 20px;
 
 			img {
 				width: 100%;
 				height: 100%;
+				left: 0;
+				top: 0;
 				object-fit: cover;
 			}
 		}
