@@ -3,7 +3,6 @@ import styles from './write.module.scss';
 import { addPost } from '@/lib/actions';
 import InputImage from '@/components/inputImage/InputImage';
 import { auth } from '@/lib/auth';
-// import ImageUploader from '@/components/uploadImage/UploadImage';
 import BtnSubmit from '@/components/btnSubmit/BtnSubmit';
 
 // 신규 post 업로드 오류 뜨는 현상 해결
@@ -15,7 +14,7 @@ export default async function Write() {
 	return (
 		<>
 			<section className={clsx(styles.write)}>
-				<h1>Write Your Own Post!</h1>
+				<h1>Make Your Own Post!</h1>
 				<div className={clsx(styles.inner)}>
 					<form action={addPost}>
 						<input type='hidden' name='email' defaultValue={session.user.email} />

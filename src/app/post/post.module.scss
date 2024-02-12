@@ -1,9 +1,8 @@
 .post {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
 
-	h1 {
+	> h1 {
 		width: 100%;
 		font-weight: bold;
 		margin: 20px 0;
