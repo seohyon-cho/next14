@@ -35,6 +35,7 @@ export default function Flickr() {
 
 	useEffect(() => {
 		fetchFlickr({ type: 'interest' });
+		setImgPanelOpen(false);
 	}, []);
 
 	return (
