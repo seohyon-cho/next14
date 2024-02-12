@@ -13,3 +13,11 @@
 		letter-spacing: -4px;
 	}
 }
+@media (max-width: $tablet) {
+	.btnSet {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+	}
+}

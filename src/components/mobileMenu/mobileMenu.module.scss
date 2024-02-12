@@ -3,9 +3,62 @@
 	height: 100vh;
 	background: var(--text);
 	color: var(--bg);
-	padding: 40px;
+	padding-top: 40px;
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 5;
+	.close {
+		position: absolute;
+		right: 15px;
+		top: 15px;
+		font-size: 2rem;
+		opacity: 0.6;
+		cursor: pointer;
+	}
+	h1 {
+		text-align: center;
+		font-size: 2rem;
+		opacity: 0.5;
+		letter-spacing: -2px;
+		padding: 20px 0 40px;
+	}
+	ul {
+		border-top: 1px solid var(--bg);
+		li {
+			padding: 0 30px;
+			width: 100%;
+			list-style: none;
+			height: 70px;
+			transition: 0.4s;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			cursor: pointer;
+			border-bottom: 1px solid var(--bg);
+			a {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 1.5rem;
+				font-weight: 300;
+				transition: 0.4s;
+				.arrow {
+					opacity: 0;
+					transition: 0.4s;
+					font-size: 1rem;
+				}
+			}
+
+			&:hover {
+				a {
+					font-size: 1.6rem;
+					.arrow {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
 }

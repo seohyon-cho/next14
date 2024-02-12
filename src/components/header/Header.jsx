@@ -13,8 +13,10 @@ export default async function Header({ session }) {
 			</h1>
 
 			<Navbar textArr={session?.user ? ['about', 'youtube', 'post'] : ['about', 'youtube', 'join']} session={session} />
-			<BtnLogin session={session} />
-			<BtnMenuToggle />
+			<div className={clsx(styles.btnSet)}>
+				<BtnLogin session={session} />
+				<BtnMenuToggle />
+			</div>
 		</header>
 	);
 }

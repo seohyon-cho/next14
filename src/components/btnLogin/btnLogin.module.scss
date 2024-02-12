@@ -24,9 +24,3 @@
 	color: var(--bg);
 	border-color: transparent;
 }
-
-@media (max-width: $tablet) {
-	.btn {
-		display: none;
-	}
-}
