@@ -1,12 +1,25 @@
-import { Inter } from 'next/font/google';
+import { Newsreader, Poppins } from 'next/font/google';
 import '@/styles/globals.scss';
 import Header from '@/components/header/Header';
 import { GlobalProvider } from '@/hooks/useGlobalData';
 import MobileMenu from '@/components/mobileMenu/MobileMenu';
 import '@uploadthing/react/styles.css';
 import Footer from '@/components/footer/Footer';
+import clsx from 'clsx';
 
-const inter = Inter({ subsets: ['latin'] });
+const newsReader = Newsreader({
+	subsets: ['latin'],
+	weight: ['200', '300', '400', '500', '600', '700'],
+	preload: true,
+	variable: '--point'
+});
+
+const poppins = Poppins({
+	subsets: ['latin'],
+	weight: ['200', '300', '400', '500', '600', '700'],
+	preload: true,
+	variable: '--body'
+});
 
 export const metadata = {
 	title: 'Blog.',
@@ -16,11 +29,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang='en'>
-			<body className={inter.className}>
+			<body>
 				<GlobalProvider>
 					<main className='container'>
 						<Header />
-						<div className='wrap'>{children}</div>
+						<div className={clsx(poppins.variable, newsReader.variable, 'wrap')}>{children}</div>
 						<Footer className='footer' />
 					</main>
 
