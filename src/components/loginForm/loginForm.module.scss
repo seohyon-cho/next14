@@ -52,6 +52,17 @@
 				color: white;
 			}
 		}
+		p.errorTxt {
+			color: rgb(255, 225, 0);
+			font-size: 0.8rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 7px;
+			.icon {
+				font-size: 1rem;
+			}
+		}
 		a {
 			width: 100%;
 			display: flex;

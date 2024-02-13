@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import styles from './loginForm.module.scss';
 import { IoInformationCircle } from 'react-icons/io5';
 import { IoIosLock } from 'react-icons/io';
+import { BiMessageError } from 'react-icons/bi';
 
 export default function LoginForm() {
 	//useFormState를 쓰는 이유
@@ -27,7 +28,10 @@ export default function LoginForm() {
 					<IoIosLock className={clsx(styles.infoIcon)} />
 				</div>
 				<button>Login</button>
-				{state?.error}
+				<p className={clsx(styles.errorTxt)}>
+					{state?.error}
+					{state?.error && <BiMessageError className={clsx(styles.icon)} />}
+				</p>
 				<Link href='/join'>
 					{"Don't have an account?"} <b>Join</b>
 				</Link>
