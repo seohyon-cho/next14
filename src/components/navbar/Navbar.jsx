@@ -12,7 +12,7 @@ export default function Navbar({ textArr, session }) {
 	const userName = session?.user.email;
 	return (
 		<nav className={clsx(styles.navbar)}>
-			{session?.user ? `Welcome, ${userName.split('@')[0]}!` : 'Hello, Stranger.'}
+			<p>{session?.user ? `Welcome, ${userName.split('@')[0]}!` : 'Hello, Stranger.'}</p>
 			{textArr.map(txt => (
 				<Link key={txt} href={`/${txt}`} className={clsx(pathName === '/' + txt ? styles.on : '')}>
 					{setCapitalize(txt)}

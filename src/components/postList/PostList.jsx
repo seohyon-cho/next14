@@ -30,25 +30,27 @@ export default async function PostList({ searchParams }) {
 			</article>
 			<article className={clsx(styles.posting)}>
 				{posts.map(post => (
-					<article key={post._id}>
-						<div className={clsx(styles.pic)}>{post.img && <Image src={post.img} alt={post.title} priority fill />}</div>
-						<div className={clsx(styles.txt)}>
-							<h2>
-								<Link href={`/post/${post._id}`}>{post.title}</Link>
-							</h2>
-							<UserInfo email={post.email} />
-							<p>{post.desc}</p>
-							<Link href={`/post/${post._id}`}>
-								<div className={clsx(styles.btnDetail)}>
-									<span>
-										<FaArrowRightLong className={clsx(styles.icon)} />
-										<IoSearch className={clsx(styles.icon2)} />
-									</span>
-									<p>Learn more</p>
-								</div>
-							</Link>
-						</div>
-					</article>
+					<div key={post._id} className={clsx(styles.inner)}>
+						<article>
+							<div className={clsx(styles.pic)}>{post.img && <Image src={post.img} alt={post.title} priority fill />}</div>
+							<div className={clsx(styles.txt)}>
+								<h2>
+									<Link href={`/post/${post._id}`}>{post.title}</Link>
+								</h2>
+								<UserInfo email={post.email} />
+								<p>{post.desc}</p>
+								<Link href={`/post/${post._id}`}>
+									<div className={clsx(styles.btnDetail)}>
+										<span>
+											<FaArrowRightLong className={clsx(styles.icon)} />
+											<IoSearch className={clsx(styles.icon2)} />
+										</span>
+										<p>Learn more</p>
+									</div>
+								</Link>
+							</div>
+						</article>
+					</div>
 				))}
 			</article>
 			<Pagination total={total} nums={nums} className={clsx(styles.pagination)} />

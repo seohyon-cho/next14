@@ -1,16 +1,20 @@
 .joinWrap {
 	min-height: 200px;
 	display: flex;
-	margin-top: 180px;
+	margin-top: 140px;
 	.contactInfo {
 		width: 30%;
 		list-style: none;
-		padding: 4vw;
+		padding: 4vw 4vw 4vw 0;
+		li.text {
+			font-family: var(--point);
+			color: #444;
+		}
 		li.btn {
 			width: 100%;
 			height: 50px;
 			border: 1px solid black;
-			border-radius: 50px;
+			border-radius: 5px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -19,6 +23,7 @@
 			color: white;
 			position: relative;
 			cursor: pointer;
+			font-family: var(--body);
 
 			&:hover {
 				span {
@@ -35,7 +40,7 @@
 				width: 30px;
 				height: 30px;
 				background: white;
-				border-radius: 100%;
+				border-radius: 5px;
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -57,6 +62,19 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
+		p.errorTxt {
+			width: 100%;
+			margin-bottom: 60px;
+			color: red;
+			font-size: 0.8rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 7px;
+			.icon {
+				font-size: 1rem;
+			}
+		}
 		.btnSet {
 			width: 100%;
 			display: flex;
@@ -65,13 +83,14 @@
 			gap: 40px;
 			margin-bottom: 40px;
 			input {
+				background: rgba(255, 255, 255, 0.6);
 				border: none;
 				width: 150px;
 				height: 50px;
-				border-radius: 50px;
 				font-size: 1.2rem;
 				cursor: pointer;
 				transition: 0.3s;
+				font-family: var(--point);
 				&:nth-child(1) {
 					background: #b7b7b7;
 					color: white;
@@ -87,21 +106,27 @@
 			display: flex;
 			flex-direction: column;
 			margin-bottom: 60px;
+			font-family: var(--point);
 			input {
 				border: none;
 				outline: 0;
 				height: 40px;
 				background: none;
 				border-bottom: 2px solid #555;
+				font-family: var(--body);
+				font-size: 0.8rem;
 			}
 		}
 		.last {
 			width: 100%;
+			margin-bottom: 20px;
 			textarea {
 				outline: 0;
 				background: none;
 				border: none;
 				border-bottom: 2px solid #555;
+				font-family: var(--body);
+				font-size: 0.8rem;
 			}
 		}
 	}

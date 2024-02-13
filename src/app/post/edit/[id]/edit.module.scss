@@ -8,6 +8,7 @@ section.edit {
 		width: 100%;
 		font-size: 2rem;
 		padding-bottom: 20px;
+		font-family: var(--point);
 	}
 	.inner {
 		margin: 0 auto;
@@ -37,9 +38,13 @@ section.edit {
 						height: 100%;
 						display: inline-block;
 						border: 1px solid rgba(0, 0, 0, 0.5);
+						font-family: var(--point);
+						font-weight: 400;
+						font-size: 1.2rem;
 					}
 				}
 				input {
+					font-family: var(--body);
 					border: none;
 					border-bottom: 1px solid #333;
 					outline: 0;
@@ -57,6 +62,7 @@ section.edit {
 					border-bottom: 1px solid #333;
 					outline: 0;
 					resize: none;
+					font-family: var(--body);
 					&:focus {
 						background: rgba(255, 255, 255, 0.4);
 					}
@@ -71,12 +77,12 @@ section.edit {
 				padding-top: 20px;
 				input {
 					border: none;
-					background: white;
+					background: rgba(255, 255, 255, 0.6);
 					font-size: 1.1rem;
-					padding: 8px 20px;
-					border-radius: 30px;
+					padding: 10px 30px;
 					cursor: pointer;
 					transition: 0.4s;
+					font-family: var(--point);
 					&:hover {
 						background: #333;
 						color: white;

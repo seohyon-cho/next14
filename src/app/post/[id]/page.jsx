@@ -8,6 +8,7 @@ import { Suspense } from 'react';
 import { auth } from '@/lib/auth';
 import { LuFileEdit } from 'react-icons/lu';
 import { RiDeleteBin6Line, RiArrowGoBackFill } from 'react-icons/ri';
+import { CgSearchLoading } from 'react-icons/cg';
 
 export default async function PostDetail({ params }) {
 	const { id } = params;
@@ -32,7 +33,15 @@ export default async function PostDetail({ params }) {
 							<p className={clsx(styles.editDate)}>Modification date: {new Date(post.updatedAt).toLocaleString()} </p>
 						</div>
 						{post && (
-							<Suspense fallback={<p>Loading...</p>}>
+							<Suspense
+								fallback={
+									<article style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '5px', width: '100%', height: '100vh' }}>
+										<h1 style={{ fontSize: '1.6rem', fontFamily: 'var(--body)', fontWeight: '500' }}>Loading for Post Page ...</h1>
+										<span>
+											<CgSearchLoading style={{ fontSize: '2.8rem' }} />
+										</span>
+									</article>
+								}>
 								<UserInfo email={post.email} />
 							</Suspense>
 						)}

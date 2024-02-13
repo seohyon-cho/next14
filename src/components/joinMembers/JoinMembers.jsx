@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { addUser } from '@/lib/actions';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import { BiMessageError } from 'react-icons/bi';
 
 export default function JoinMembers() {
 	const [state, formAction] = useFormState(addUser, undefined);
@@ -63,11 +64,13 @@ export default function JoinMembers() {
 					<label htmlFor='addmessage'>Want to know more? Drop us a line!</label>
 					<textarea name='addmessage' cols='30' rows='10' id='addmessage' />
 				</div>
+				<p className={clsx(styles.errorTxt)}>
+					{state?.error} {state?.error && <BiMessageError className={clsx(styles.icon)} />}
+				</p>
 				<div className={clsx(styles.btnSet)}>
 					<input type='reset' value='cancel' />
 					<input type='submit' value='register' />
 				</div>
-				{state?.error}
 			</form>
 		</div>
 	);

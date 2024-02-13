@@ -6,17 +6,24 @@
 	.profile {
 		width: 25%;
 		height: 300px;
-		background: rgba(255, 255, 255, 0.6);
+		background: rgba(255, 255, 255, 0.3);
+		backdrop-filter: blur(10px);
 		padding: 5px;
 		.inner {
 			border: 1px solid rgba(0, 0, 0, 0.5);
 			height: 100%;
+			p {
+				font-family: var(--body);
+				font-size: 0.8rem;
+			}
 			nav {
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				height: 50px;
 				a {
+					font-family: var(--body);
+					font-size: 0.9rem;
 					display: flex;
 					justify-content: center;
 					align-items: center;
@@ -59,118 +66,129 @@
 	}
 	.posting {
 		width: 70%;
-		> article {
+		.inner {
+			padding: 5px;
 			width: 100%;
-			height: auto;
 			margin-bottom: 30px;
-			display: flex;
-			align-items: center;
-			padding: 15px;
-			background: rgba(255, 255, 255, 0.6);
+			background: rgba(255, 255, 255, 0.4);
+			backdrop-filter: blur(10px);
+			> article {
+				border: 1px solid rgba(0, 0, 0, 0.5);
+				width: 100%;
 
-			.pic {
-				width: 35%;
-				min-height: 220px;
-				height: 100%;
-				position: relative;
-				background: var(--text);
-
-				img {
-					width: 100%;
-					height: 100%;
-					object-fit: cover;
-				}
-			}
-
-			.txt {
-				padding: 0 30px;
-				height: 100%;
-				width: 65%;
 				display: flex;
-				flex-direction: column;
-				gap: 5px;
-				h2 {
-					font-size: 1.6rem;
-					margin-top: 20px;
-					font-weight: 500;
+				align-items: center;
+				padding: 15px;
+
+				.pic {
+					width: 35%;
+					min-height: 220px;
+					height: 100%;
+					position: relative;
+					background: var(--text);
+
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
 				}
-				article {
-					padding: 0;
-					background: none;
+
+				.txt {
+					padding: 0 30px;
+					height: 100%;
+					width: 65%;
 					display: flex;
-					flex-direction: row-reverse;
-					justify-content: start;
-					align-items: center;
-					margin-bottom: 10px;
-					gap: 10px;
-					p {
-						font-size: 0.7rem;
+					flex-direction: column;
+					gap: 5px;
+					h2 {
+						font-family: var(--point);
+						font-size: 1.6rem;
+						margin-top: 20px;
+						font-weight: 500;
 					}
-					div {
-						width: 30px;
-						height: 30px;
-						padding: 2px;
-						border: 1px solid rgba(0, 0, 0, 0.3);
-						img {
-							width: 100%;
-							height: 100%;
-							object-fit: cover;
-						}
-					}
-				}
-
-				p {
-					font-size: 0.9rem;
-					line-height: 1.6;
-					color: rgba(0, 0, 0, 0.6);
-				}
-				.btnDetail {
-					font-size: 0.8rem;
-					border: 1px solid #222;
-					display: inline-block;
-					padding: 9px 0;
-					margin: 10px 0 10px;
-					border-radius: 30px;
-					font-weight: bold;
-					cursor: pointer;
-					width: 130px;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					gap: 6px;
-					transition: 0.2s;
-					p {
-						margin-top: 2px;
-					}
-
-					span {
-						position: relative;
-						display: inline-block;
-						line-height: 0;
-						.icon {
-							position: absolute;
-							transition: 0.2s;
-							opacity: 1;
-						}
-						.icon2 {
-							transition: 0.2s;
-							opacity: 0;
-						}
-					}
-
-					&:hover {
-						background: #222;
-						color: white;
-						font-weight: normal;
+					article {
+						padding: 0;
+						background: none;
+						display: flex;
+						flex-direction: row-reverse;
+						justify-content: start;
+						align-items: center;
+						margin-bottom: 10px;
+						gap: 10px;
 						p {
-							color: inherit;
+							font-size: 0.7rem;
+							color: #555;
 						}
-						> span {
-							> .icon {
+						div {
+							width: 30px;
+							height: 30px;
+							padding: 2px;
+							border: 1px solid rgba(0, 0, 0, 0.3);
+							img {
+								width: 100%;
+								height: 100%;
+								object-fit: cover;
+							}
+						}
+					}
+
+					> p {
+						font-family: var(--point);
+						font-size: 0.9rem;
+						line-height: 1.6;
+						color: rgba(0, 0, 0, 0.6);
+					}
+					.btnDetail {
+						font-size: 0.8rem;
+						border: 1px solid #222;
+						display: inline-block;
+						padding: 9px 0;
+						margin: 10px 0 10px;
+						font-weight: bold;
+						cursor: pointer;
+						width: 130px;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						gap: 6px;
+						transition: 0.2s;
+						p {
+							margin-top: 1px;
+							font-family: var(--body);
+							font-weight: 300;
+							font-size: 0.8rem;
+						}
+
+						span {
+							position: relative;
+							display: inline-block;
+							line-height: 0;
+							.icon {
+								position: absolute;
+								transition: 0.2s;
+								opacity: 1;
+							}
+							.icon2 {
+								transition: 0.2s;
 								opacity: 0;
 							}
-							> .icon2 {
-								opacity: 1;
+						}
+
+						&:hover {
+							background: #222;
+							color: white;
+							font-weight: normal;
+							p {
+								color: inherit;
+							}
+							> span {
+								> .icon {
+									opacity: 0;
+								}
+								> .icon2 {
+									opacity: 1;
+								}
 							}
 						}
 					}

@@ -12,7 +12,7 @@ export default function YoutubeCard({ data, isPriority, isPrefetch }) {
 	const [date, time] = data.snippet.publishedAt.split('T');
 	return (
 		<article className={clsx(styles.youtubeCard)}>
-			<h2>{shortenText(data.snippet.title, 45)}</h2>
+			<h2>{shortenText(data.snippet.title, 60)}</h2>
 			<div className={clsx(styles.pic)}>
 				<Link href={`/youtube/${data.id}`} prefetch={isPrefetch}>
 					<Image
