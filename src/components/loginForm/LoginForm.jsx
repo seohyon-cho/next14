@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { handleLogin } from '@/lib/actions';
 import clsx from 'clsx';
 import styles from './loginForm.module.scss';
+import { IoInformationCircle } from 'react-icons/io5';
+import { IoIosLock } from 'react-icons/io';
 
 export default function LoginForm() {
 	//useFormState를 쓰는 이유
@@ -16,8 +18,14 @@ export default function LoginForm() {
 	return (
 		<article className={clsx(styles.loginForm)}>
 			<form action={formAction}>
-				<input type='text' placeholder='username' name='username' />
-				<input type='password' placeholder='password' name='password' />
+				<div>
+					<input type='text' placeholder='ID' name='username' />
+					<IoInformationCircle className={clsx(styles.infoIcon)} />
+				</div>
+				<div>
+					<input type='password' placeholder='Password' name='password' />
+					<IoIosLock className={clsx(styles.infoIcon)} />
+				</div>
 				<button>Login</button>
 				{state?.error}
 				<Link href='/join'>
