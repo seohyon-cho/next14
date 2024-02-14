@@ -14,7 +14,7 @@ export default function About() {
 					</article>
 					<article className={clsx(styles.right)}></article>
 				</section>
-				<section className={clsx(styles.bottom)}>
+				<section className={clsx(styles.middle)}>
 					<h3>Why working with us is different ...</h3>
 					<ul>
 						<li>
@@ -40,7 +40,7 @@ export default function About() {
 						</li>
 					</ul>
 				</section>
-				<section className={clsx(styles.middle)}>
+				<section className={clsx(styles.bottom)}>
 					<article className={clsx(styles.pic)}></article>
 					<article className={clsx(styles.txt)}>
 						<h3>This is a website that helps you create a blog that stand out.</h3>
