@@ -27,3 +27,11 @@ section.background {
 		line-height: 1;
 	}
 }
+@media (max-width: $mobile) {
+	.youtube {
+		h1 {
+			margin: 6vw 0 8vw;
+			font-size: 12vw;
+		}
+	}
+}

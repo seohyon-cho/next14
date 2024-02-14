@@ -105,6 +105,7 @@
 @media (max-width: $tablet) {
 	.youtubeCard {
 		width: 45%;
+		margin-bottom: 65px;
 		.pic {
 			height: 20vmin;
 		}
@@ -114,6 +115,7 @@
 @media (max-width: $mobile) {
 	.youtubeCard {
 		width: 100%;
+		margin-bottom: 45px;
 
 		.pic {
 			height: 35vmin;
