@@ -56,7 +56,10 @@ export default async function Footer({ session }) {
 					</a>
 				</li>
 			</ul>
-			<p>Copyright &copy;2024 All rights reserved | This Website is made with Next14</p>
+			<p>
+				Copyright &copy;2024 All rights reserved | <br className={clsx(styles.brTag)} />
+				This Website is made with Next14
+			</p>
 		</footer>
 	);
 }

@@ -49,10 +49,24 @@
 	}
 	p {
 		font-size: 0.7rem;
+		.brTag {
+			display: none;
+		}
 	}
 
 	h1 {
 		font-size: 3.3rem;
 		letter-spacing: -4px;
+	}
+}
+
+@media (max-width: $mobile) {
+	.footer {
+		p {
+			text-align: center;
+			.brTag {
+				display: inline-block;
+			}
+		}
 	}
 }
