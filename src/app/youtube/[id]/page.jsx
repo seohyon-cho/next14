@@ -33,45 +33,48 @@ export default async function Detail({ params }) {
 	const shortenText = useCustomText('short');
 
 	return (
-		<section className={clsx(styles.detail)}>
-			<Link href={`/youtube`}>
-				<div className={clsx(styles.backBtn)}>
-					<RiArrowGoBackFill />
-				</div>
-			</Link>
-			<div className={clsx(styles.content)}>
-				<article className={clsx(styles.left)}>
-					<div className={clsx(styles.inner)}>
-						<div className={clsx(styles.videoBox)}>
-							<iframe src={`https://www.youtube.com/embed/${dataById.resourceId.videoId}`} title={dataById.title}></iframe>
-						</div>
-						<div className={clsx(styles.infoBox)}>
-							<h3>{dataById.title}</h3>
-							<span>{customText(date, '.')}</span>
-							<p>{shortenText(dataById.description, 500)}</p>
-						</div>
-						<p>&copy; Blog.</p>
+		<>
+			<section className={clsx(styles.background)}></section>
+			<section className={clsx(styles.detail)}>
+				<Link href={`/youtube`}>
+					<div className={clsx(styles.backBtn)}>
+						<RiArrowGoBackFill />
 					</div>
-				</article>
-				<article className={clsx(styles.right)}>
-					<div className={clsx(styles.inner)}>
-						<h2>PEOPLE ARE WATCHING WITH ...</h2>
-						{dataByMain.items.map((data, idx) => {
-							return (
-								<div className={clsx(styles.singleContent)}>
-									<div className={clsx(styles.thumb)}>
-										<Link href={`/youtube/${data.id}`}>
-											<FaRegCirclePlay className={clsx(styles.playIcon)} />
-											<Image className={clsx(styles.image)} src={data.snippet.thumbnails.standard.url} alt={data.snippet.title} fill sizes='100%' />
-										</Link>
+				</Link>
+				<div className={clsx(styles.content)}>
+					<article className={clsx(styles.left)}>
+						<div className={clsx(styles.inner)}>
+							<div className={clsx(styles.videoBox)}>
+								<iframe src={`https://www.youtube.com/embed/${dataById.resourceId.videoId}`} title={dataById.title}></iframe>
+							</div>
+							<div className={clsx(styles.infoBox)}>
+								<h3>{dataById.title}</h3>
+								<span>{customText(date, '.')}</span>
+								<p>{shortenText(dataById.description, 500)}</p>
+							</div>
+							<p>&copy; Blog.</p>
+						</div>
+					</article>
+					<article className={clsx(styles.right)}>
+						<div className={clsx(styles.inner)}>
+							<h2>PEOPLE ARE WATCHING WITH ...</h2>
+							{dataByMain.items.map((data, idx) => {
+								return (
+									<div className={clsx(styles.singleContent)}>
+										<div className={clsx(styles.thumb)}>
+											<Link href={`/youtube/${data.id}`}>
+												<FaRegCirclePlay className={clsx(styles.playIcon)} />
+												<Image className={clsx(styles.image)} src={data.snippet.thumbnails.standard.url} alt={data.snippet.title} fill sizes='100%' />
+											</Link>
+										</div>
+										<p>{data.snippet.title}</p>
 									</div>
-									<p>{data.snippet.title}</p>
-								</div>
-							);
-						})}
-					</div>
-				</article>
-			</div>
-		</section>
+								);
+							})}
+						</div>
+					</article>
+				</div>
+			</section>
+		</>
 	);
 }
