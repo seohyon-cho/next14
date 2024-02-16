@@ -30,7 +30,7 @@ section.background {
 		padding: 40px 0;
 	}
 	.loginTxt {
-		width: 70%;
+		width: 75%;
 		margin: 15px 0;
 		position: relative;
 		p {
@@ -58,12 +58,12 @@ section.background {
 		}
 	}
 	.loginSet {
-		width: 70%;
+		width: 75%;
 		margin-bottom: 60px;
 		display: flex;
 		justify-content: space-between;
 		form {
-			width: 45%;
+			width: 48%;
 			button {
 				width: 100%;
 				padding: 10px 0;
@@ -89,6 +89,53 @@ section.background {
 				&.google {
 					border: 1.5px solid rgb(216, 31, 3);
 					color: rgb(171, 26, 4);
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: $tablet) {
+	.login {
+		width: 75%;
+		.loginTxt {
+			width: 80%;
+		}
+		.loginSet {
+			width: 80%;
+		}
+	}
+}
+@media (max-width: $mobile) {
+	.login {
+		width: 100%;
+		margin: 10vw auto;
+		h2 {
+			font-size: 9vw;
+			padding: 6vw 0;
+		}
+		.loginTxt {
+			width: 80%;
+			margin: 15px 0;
+			p {
+				font-size: 0.8rem;
+				&::after,
+				&::before {
+					width: 30%;
+				}
+			}
+		}
+		.loginSet {
+			width: 80%;
+			margin-bottom: 12vw;
+			form {
+				button {
+					padding: 2vw 0;
+					gap: 1vw;
+					font-size: 2.7vw;
+					.icon {
+						font-size: 1.4rem;
+					}
 				}
 			}
 		}

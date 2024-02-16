@@ -1,5 +1,5 @@
 .loginForm {
-	width: 70%;
+	width: 75%;
 	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
@@ -80,5 +80,14 @@
 				}
 			}
 		}
+	}
+}
+@media (max-width: $tablet) {
+	.loginForm {
+		width: 80%;
+	}
+}
+@media (max-width: $mobile) {
+	.loginForm {
 	}
 }
