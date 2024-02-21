@@ -45,19 +45,19 @@ export default function JoinMembers() {
 			</ul>
 			<form className={clsx(styles.joinMembers)} action={formAction}>
 				<div className={clsx(styles.inputSet)}>
-					<label htmlFor='username'>username</label>
+					<label htmlFor='username'>Username</label>
 					<input type='text' name='username' id='username' />
 				</div>
 				<div className={clsx(styles.inputSet)}>
-					<label htmlFor='email'>email</label>
+					<label htmlFor='email'>Email</label>
 					<input type='email' name='email' id='email' />
 				</div>
 				<div className={clsx(styles.inputSet)}>
-					<label htmlFor='password'>password</label>
+					<label htmlFor='password'>Password</label>
 					<input type='password' name='password' id='password' />
 				</div>
 				<div className={clsx(styles.inputSet)}>
-					<label htmlFor='repassword'>repassword</label>
+					<label htmlFor='repassword'>Re-password</label>
 					<input type='password' name='repassword' id='repassword' />
 				</div>
 				<div className={clsx(styles.inputSet, styles.last)}>

@@ -1,5 +1,5 @@
 .join {
-	border: 1px solid #e0d7cb;
+	border: 1px solid transparent;
 	position: relative;
 	margin-top: 50px;
 	h1.title {
@@ -11,5 +11,21 @@
 		color: rgba(255, 255, 255, 0.5);
 		letter-spacing: -10px;
 		font-family: var(--point);
+	}
+}
+
+@media (max-width: $tablet) {
+	.join {
+		h1.title {
+			font-size: 24vw;
+		}
+	}
+}
+@media (max-width: $mobile) {
+	.join {
+		h1.title {
+			font-size: 25vw;
+			letter-spacing: -6px;
+		}
 	}
 }

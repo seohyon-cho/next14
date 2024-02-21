@@ -131,3 +131,143 @@
 		}
 	}
 }
+
+@media (max-width: $tablet) {
+	.joinWrap {
+		flex-direction: column-reverse;
+		.contactInfo {
+			width: 100%;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			gap: 40px;
+			li.text {
+				font-family: var(--point);
+				color: #444;
+				line-height: 1.3 !important;
+			}
+			li.btn {
+				width: 35%;
+				height: 50px;
+				margin-bottom: 30px;
+				position: relative;
+				span {
+					overflow: hidden;
+					position: absolute;
+					left: 10px;
+					width: 30px;
+					height: 30px;
+					background: white;
+					border-radius: 5px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					color: black;
+					.icon {
+						transition: 0.3s;
+					}
+				}
+			}
+			li.text {
+				display: none;
+			}
+		}
+		.joinMembers {
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			p.errorTxt {
+				width: 100%;
+				margin-bottom: 60px;
+				color: red;
+				font-size: 0.8rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 7px;
+				.icon {
+					font-size: 1rem;
+				}
+			}
+			.btnSet {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 40px;
+				margin-bottom: 40px;
+				input {
+					background: rgba(255, 255, 255, 0.6);
+					border: none;
+					width: 150px;
+					height: 50px;
+					font-size: 1.2rem;
+					cursor: pointer;
+					transition: 0.3s;
+					font-family: var(--point);
+					&:nth-child(1) {
+						background: #b7b7b7;
+						color: white;
+					}
+					&:hover {
+						background: #333;
+						color: white;
+					}
+				}
+			}
+			.inputSet {
+				width: 45%;
+				display: flex;
+				flex-direction: column;
+				margin-bottom: 60px;
+				font-family: var(--point);
+				input {
+					border: none;
+					outline: 0;
+					height: 40px;
+					background: none;
+					border-bottom: 2px solid #555;
+					font-family: var(--body);
+					font-size: 0.8rem;
+				}
+			}
+			.last {
+				width: 100%;
+				margin-bottom: 20px;
+				textarea {
+					outline: 0;
+					background: none;
+					border: none;
+					border-bottom: 2px solid #555;
+					font-family: var(--body);
+					font-size: 0.8rem;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: $mobile) {
+	.joinWrap {
+		margin-top: 15vw;
+		.contactInfo {
+			flex-direction: column;
+			align-items: center;
+			gap: 0;
+			margin: 15px 0 30px;
+			li.btn {
+				width: 60%;
+				margin-bottom: 10px;
+			}
+		}
+		.joinMembers {
+			.inputSet {
+				width: 47%;
+			}
+			.last {
+				width: 100%;
+			}
+		}
+	}
+}
