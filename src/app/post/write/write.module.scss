@@ -195,3 +195,39 @@ section.write {
 		}
 	}
 }
+
+@media (max-width: $tablet) {
+	section.write {
+		width: 85%;
+		.inner {
+			padding: 20px;
+		}
+	}
+}
+
+@media (max-width: $mobile) {
+	section.write {
+		h1 {
+			font-size: 1.8rem;
+			padding: 0 10px;
+		}
+		width: 100%;
+		.inner {
+			> form {
+				> div {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					> label {
+						margin-bottom: 20px;
+						width: 100%;
+					}
+					> input,
+					textarea {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}

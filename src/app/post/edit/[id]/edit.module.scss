@@ -105,6 +105,10 @@ section.edit {
 @media (max-width: $mobile) {
 	section.edit {
 		width: 100%;
+		h1 {
+			font-size: 1.8rem;
+			padding: 0 10px;
+		}
 		.inner {
 			> form {
 				> div {
@@ -113,7 +117,7 @@ section.edit {
 					align-items: center;
 					> label {
 						margin-bottom: 20px;
-						width: 60%;
+						width: 100%;
 					}
 					> input,
 					textarea {
