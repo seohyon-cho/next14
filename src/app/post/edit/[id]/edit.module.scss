@@ -92,3 +92,35 @@ section.edit {
 		}
 	}
 }
+
+@media (max-width: $tablet) {
+	section.edit {
+		width: 85%;
+		.inner {
+			padding: 20px;
+		}
+	}
+}
+
+@media (max-width: $mobile) {
+	section.edit {
+		width: 100%;
+		.inner {
+			> form {
+				> div {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					> label {
+						margin-bottom: 20px;
+						width: 60%;
+					}
+					> input,
+					textarea {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
